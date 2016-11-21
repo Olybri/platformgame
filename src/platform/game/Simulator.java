@@ -1,9 +1,6 @@
 package platform.game;
 
-import platform.game.level.Level;
-
 import java.util.ArrayList;
-import java.util.List;
 
 import platform.util.*;
 
@@ -23,6 +20,8 @@ public class Simulator implements World
     private ArrayList<Actor> registered = new ArrayList<>();
     private ArrayList<Actor> unregistered = new ArrayList<>();
     
+    private final Vector GRAVITY = new Vector(0, -9.81);
+    
     /**
      * Create a new simulator .
      *
@@ -38,6 +37,10 @@ public class Simulator implements World
         expectedCenter = Vector.ZERO;
         currentRadius = 10.0;
         expectedRadius = 10.0;
+        
+        register(new Block(new Box(new Vector(-4,-1), new Vector(4, 0)), loader.getSprite("box.empty")));
+        register(new Block(new Box(new Vector(-2, 0), new Vector(-1, 1)), loader.getSprite("box.empty")));
+        register(new Fireball(new Vector(3.35, 2), new Vector(-3, 5), loader.getSprite("fireball")));
     }
     
     /**
@@ -55,6 +58,11 @@ public class Simulator implements World
         View view = new View(input, output);
         view.setTarget(currentCenter, currentRadius);
         
+        for(Actor actor : actors)
+            for(Actor other : actors)
+                if(actor.getPriority() > other.getPriority())
+                    actor.interact(other);
+        
         for(Actor actor : actors.descending())
             actor.update(view);
         
@@ -64,13 +72,19 @@ public class Simulator implements World
         // Add registered actors
         for(Actor actor : registered)
             if(!actors.contains(actor))
+            {
+                actor.register(this);
                 actors.add(actor);
+            }
         
         registered.clear();
         
         // Remove unregistered actors
         for(Actor actor : unregistered)
+        {
+            actor.unregister();
             actors.remove(actor);
+        }
         
         unregistered.clear();
     }
@@ -90,6 +104,12 @@ public class Simulator implements World
     public Loader getLoader()
     {
         return loader;
+    }
+    
+    @Override
+    public Vector getGravity()
+    {
+        return GRAVITY;
     }
     
     @Override

@@ -11,12 +11,10 @@ import platform.util.Sprite;
  */
 public abstract class Actor implements Comparable<Actor>
 {
-    private int priority;
+    protected int priority = -1;
+    protected Sprite sprite = null;
     
-    public final int getPriority()
-    {
-        return priority;
-    }
+    private World world = null;
     
     @Override
     public int compareTo(Actor other)
@@ -27,11 +25,54 @@ public abstract class Actor implements Comparable<Actor>
         return priority > other.getPriority() ? -1 : 1;
     }
     
+    public void register(World world)
+    {
+        this.world = world;
+    }
+    
+    public void unregister()
+    {
+        world = null;
+    }
+    
+    protected World getWorld()
+    {
+        return world;
+    }
+    
+    public final int getPriority()
+    {
+        return priority;
+    }
+    
+    public void interact(Actor other)
+    {
+    }
+    
+    public boolean isSolid()
+    {
+        return false;
+    }
+    
+    public Box getBox()
+    {
+        return null;
+    }
+    
+    public Vector getPosition()
+    {
+        Box box = getBox();
+        if(box == null)
+            return null;
+        return box.getCenter();
+    }
+    
     public void update(Input input)
     {
     }
     
     public void draw(Input input, Output output)
     {
+        output.drawSprite(sprite, getBox());
     }
 }

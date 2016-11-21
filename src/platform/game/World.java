@@ -15,6 +15,8 @@ public interface World
      */
     public Loader getLoader();
     
+    public Vector getGravity();
+    
     /**
      * Set viewport location and size.
      *
