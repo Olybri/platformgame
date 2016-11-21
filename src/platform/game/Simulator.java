@@ -19,6 +19,10 @@ public class Simulator implements World
     private Vector expectedCenter;
     private double expectedRadius;
     
+    private SortedCollection<Actor> actors = new SortedCollection<>();
+    private ArrayList<Actor> registered = new ArrayList<>();
+    private ArrayList<Actor> unregistered = new ArrayList<>();
+    
     /**
      * Create a new simulator .
      *
@@ -27,25 +31,13 @@ public class Simulator implements World
     public Simulator(Loader loader, String[] args)
     {
         if(loader == null)
-        {
             throw new NullPointerException();
-        }
+        
         this.loader = loader;
         currentCenter = Vector.ZERO;
         expectedCenter = Vector.ZERO;
         currentRadius = 10.0;
         expectedRadius = 10.0;
-    }
-    
-    @Override
-    public void setView(Vector center, double radius)
-    {
-        if(center == null)
-            throw new NullPointerException();
-        if(radius <= 0.0)
-            throw new IllegalArgumentException("radius must be positive");
-        expectedCenter = center;
-        expectedRadius = radius;
     }
     
     /**
@@ -63,17 +55,52 @@ public class Simulator implements World
         View view = new View(input, output);
         view.setTarget(currentCenter, currentRadius);
         
-        Sprite sprite = loader.getSprite("heart.full");
-        Box zone = new Box(new Vector(0.0, 0.0), 2, 2);
-        view.drawSprite(sprite, zone);
+        for(Actor actor : actors.descending())
+            actor.update(view);
         
-        if(view.getMouseButton(1).isPressed())
-            setView(view.getMouseLocation(), 10.0);
+        for(Actor actor : actors.descending())
+            actor.draw(view, view);
+        
+        // Add registered actors
+        for(Actor actor : registered)
+            if(!actors.contains(actor))
+                actors.add(actor);
+        
+        registered.clear();
+        
+        // Remove unregistered actors
+        for(Actor actor : unregistered)
+            actors.remove(actor);
+        
+        unregistered.clear();
+    }
+    
+    @Override
+    public void setView(Vector center, double radius)
+    {
+        if(center == null)
+            throw new NullPointerException();
+        if(radius <= 0.0)
+            throw new IllegalArgumentException("radius must be positive");
+        expectedCenter = center;
+        expectedRadius = radius;
     }
     
     @Override
     public Loader getLoader()
     {
         return loader;
+    }
+    
+    @Override
+    public void register(Actor actor)
+    {
+        registered.add(actor);
+    }
+    
+    @Override
+    public void unregister(Actor actor)
+    {
+        unregistered.add(actor);
     }
 }
