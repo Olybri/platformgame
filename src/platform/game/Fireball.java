@@ -8,14 +8,13 @@ public class Fireball extends Actor
     private Vector velocity;
     private final double SIZE = 0.4;
     
-    public Fireball(Vector position, Vector velocity, Sprite sprite)
+    public Fireball(Vector position, Vector velocity)
     {
-        if(position == null || velocity == null || sprite == null)
+        if(position == null || velocity == null)
             throw new NullPointerException();
         
         this.position = position;
         this.velocity = velocity;
-        this.sprite = sprite;
         
         priority = 666;
     }
@@ -54,6 +53,8 @@ public class Fireball extends Actor
     @Override
     public void draw(Input input, Output output)
     {
+        super.draw(input, output);
+        Sprite sprite = getSprite("fireball");
         output.drawSprite(sprite, getBox(), input.getTime());
     }
 }

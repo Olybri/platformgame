@@ -9,13 +9,12 @@ public class Block extends Actor
 {
     private Box box;
     
-    public Block(Box box, Sprite sprite)
+    public Block(Box box)
     {
-        if(box == null || sprite == null)
+        if(box == null)
             throw new NullPointerException();
         
         this.box = box;
-        this.sprite = sprite;
         
         priority = 0;
     }
@@ -30,5 +29,13 @@ public class Block extends Actor
     public boolean isSolid()
     {
         return true;
+    }
+    
+    @Override
+    public void draw(Input input, Output output)
+    {
+        super.draw(input, output);
+        Sprite sprite = getSprite("box.empty");
+        output.drawSprite(sprite, getBox());
     }
 }

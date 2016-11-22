@@ -8,7 +8,6 @@ import platform.util.*;
 public abstract class Actor implements Comparable<Actor>
 {
     protected int priority = -1;
-    protected Sprite sprite = null;
     
     private World world = null;
     
@@ -36,9 +35,14 @@ public abstract class Actor implements Comparable<Actor>
         return world;
     }
     
-    public final int getPriority()
+    public int getPriority()
     {
         return priority;
+    }
+    
+    public Sprite getSprite(String name)
+    {
+        return world.getLoader().getSprite(name);
     }
     
     public void interact(Actor other)
@@ -77,6 +81,5 @@ public abstract class Actor implements Comparable<Actor>
     
     public void draw(Input input, Output output)
     {
-        output.drawSprite(sprite, getBox());
     }
 }

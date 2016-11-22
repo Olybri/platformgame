@@ -12,14 +12,13 @@ public class Player extends Actor
     
     private boolean colliding = false;
     
-    public Player(Vector position, Vector velocity, Sprite sprite)
+    public Player(Vector position, Vector velocity)
     {
-        if(position == null || velocity == null || sprite == null)
+        if(position == null || velocity == null)
             throw new NullPointerException();
         
         this.position = position;
         this.velocity = velocity;
-        this.sprite = sprite;
         
         priority = 42;
     }
@@ -61,8 +60,7 @@ public class Player extends Actor
         
         if(input.getKeyboardButton(KeyEvent.VK_SPACE).isPressed())
         {
-            Sprite s = getWorld().getLoader().getSprite("fireball");
-            getWorld().register(new Fireball(position, velocity.add(velocity.resized(2.0)), s));
+            getWorld().register(new Fireball(position, velocity.add(velocity.resized(2.0))));
         }
         
         super.update(input);
@@ -101,5 +99,13 @@ public class Player extends Actor
                     velocity = new Vector(velocity.getX(), 0.0);
             }
         }
+    }
+    
+    @Override
+    public void draw(Input input, Output output)
+    {
+        super.draw(input, output);
+        Sprite sprite = getSprite("blocker.happy");
+        output.drawSprite(sprite, getBox());
     }
 }
