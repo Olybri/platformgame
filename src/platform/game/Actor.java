@@ -36,7 +36,7 @@ public abstract class Actor implements Comparable<Actor>
         return world;
     }
     
-    public final int getPriority()
+    public int getPriority()
     {
         return priority;
     }
@@ -73,6 +73,14 @@ public abstract class Actor implements Comparable<Actor>
     
     public void update(Input input)
     {
+    }
+    
+    public Sprite getSprite(String name)
+    {
+        if(world == null)
+            return null;
+        
+        return world.getLoader().getSprite(name);
     }
     
     public void draw(Input input, Output output)

@@ -38,7 +38,7 @@ public class Simulator implements World
         currentRadius = 10.0;
         expectedRadius = 10.0;
         
-        register(new Block(new Box(new Vector(-4,-1), new Vector(4, 0)), loader.getSprite("box.empty")));
+        register(new Block(new Box(new Vector(-4, -1), new Vector(4, 0)), loader.getSprite("box.empty")));
         register(new Block(new Box(new Vector(-2, 0), new Vector(-1, 10)), loader.getSprite("box.empty")));
         register(new Player(new Vector(2, 3), new Vector(0, -1), loader.getSprite("blocker.happy")));
     }
@@ -57,7 +57,7 @@ public class Simulator implements World
         
         View view = new View(input, output);
         view.setTarget(currentCenter, currentRadius);
-    
+        
         for(Actor actor : actors.descending())
             actor.preUpdate();
         
@@ -71,7 +71,7 @@ public class Simulator implements World
         
         for(Actor actor : actors.descending())
             actor.draw(view, view);
-    
+        
         for(Actor actor : actors.descending())
             actor.postUpdate();
         

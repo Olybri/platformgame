@@ -61,8 +61,9 @@ public class Player extends Actor
         
         if(input.getKeyboardButton(KeyEvent.VK_SPACE).isPressed())
         {
-            Sprite s = getWorld().getLoader().getSprite("fireball");
-            getWorld().register(new Fireball(position, velocity.add(velocity.resized(2.0)), s));
+            Sprite fireballSprite = getSprite("fireball");
+            Vector fireballVelocity = velocity.add(velocity.resized(2.0));
+            getWorld().register(new Fireball(position, fireballVelocity, fireballSprite));
         }
         
         super.update(input);
