@@ -7,17 +7,17 @@ import platform.util.*;
  */
 public class Block extends Actor
 {
-    protected Box box;
+    private Box box;
     
-    public Block(Box box)
+    public Block(Box box, Sprite sprite)
     {
-        sprite = getWorld().getLoader().getSprite("block.empty");
-        priority = 0;
-        
         if(box == null || sprite == null)
             throw new NullPointerException();
         
         this.box = box;
+        this.sprite = sprite;
+        
+        priority = 0;
     }
     
     @Override
