@@ -8,16 +8,16 @@ public class Fireball extends Actor
     private Vector velocity;
     private final double SIZE = 0.4;
     
-    public Fireball(Vector position, Vector velocity, Sprite sprite)
+    public Fireball(Vector position, Vector velocity)
     {
+        sprite = getWorld().getLoader().getSprite("block.empty");
+        priority = 0;
+        
         if(position == null || velocity == null || sprite == null)
             throw new NullPointerException();
         
         this.position = position;
         this.velocity = velocity;
-        this.sprite = sprite;
-        
-        priority = 666;
     }
     
     @Override

@@ -37,10 +37,11 @@ public class Simulator implements World
         expectedCenter = Vector.ZERO;
         currentRadius = 10.0;
         expectedRadius = 10.0;
-        
-        register(new Block(new Box(new Vector(-4,-1), new Vector(4, 0)), loader.getSprite("box.empty")));
-        register(new Block(new Box(new Vector(-2, 0), new Vector(-1, 1)), loader.getSprite("box.empty")));
-        register(new Fireball(new Vector(3.35, 2), new Vector(-3, 5), loader.getSprite("fireball")));
+    
+        register(new Player(new Vector(2, 3), new Vector(0, -1)));
+        register(new Block(new Box(new Vector(-4,-1), new Vector(4, 0))));
+        register(new Block(new Box(new Vector(-2, 0), new Vector(-1, 1))));
+        register(new Player(new Vector(2, 3), new Vector(0, -1)));
     }
     
     /**
@@ -57,6 +58,9 @@ public class Simulator implements World
         
         View view = new View(input, output);
         view.setTarget(currentCenter, currentRadius);
+    
+        for(Actor actor : actors.descending())
+            actor.preUpdate();
         
         for(Actor actor : actors)
             for(Actor other : actors)
@@ -68,6 +72,9 @@ public class Simulator implements World
         
         for(Actor actor : actors.descending())
             actor.draw(view, view);
+    
+        for(Actor actor : actors.descending())
+            actor.postUpdate();
         
         // Add registered actors
         for(Actor actor : registered)

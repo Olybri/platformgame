@@ -9,15 +9,15 @@ public class Block extends Actor
 {
     protected Box box;
     
-    public Block(Box box, Sprite sprite)
+    public Block(Box box)
     {
+        sprite = getWorld().getLoader().getSprite("block.empty");
+        priority = 0;
+        
         if(box == null || sprite == null)
             throw new NullPointerException();
         
         this.box = box;
-        this.sprite = sprite;
-        
-        priority = 0;
     }
     
     @Override

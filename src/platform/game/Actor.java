@@ -1,10 +1,6 @@
 package platform.game;
 
-import platform.util.Box;
-import platform.util.Input;
-import platform.util.Vector;
-import platform.util.Output;
-import platform.util.Sprite;
+import platform.util.*;
 
 /**
  * Base class of all simulated actors, attached to a world.
@@ -65,6 +61,14 @@ public abstract class Actor implements Comparable<Actor>
         if(box == null)
             return null;
         return box.getCenter();
+    }
+    
+    public void preUpdate()
+    {
+    }
+    
+    public void postUpdate()
+    {
     }
     
     public void update(Input input)
