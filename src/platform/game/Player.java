@@ -56,6 +56,13 @@ public class Player extends Actor
                 velocity = new Vector(speed, velocity.getY());
             }
         }
+        if(!input.getKeyboardButton(KeyEvent.VK_LEFT).isDown()
+            && !input.getKeyboardButton(KeyEvent.VK_RIGHT).isDown())
+        {
+            if(colliding && velocity.getX() != 0)
+                velocity = velocity.mul(0.995);
+        }
+        
         if(colliding && input.getKeyboardButton(KeyEvent.VK_UP).isPressed())
             velocity = new Vector(velocity.getX(), 7.0);
         

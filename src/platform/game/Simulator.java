@@ -2,6 +2,8 @@ package platform.game;
 
 import java.util.ArrayList;
 
+import platform.game.level.BasicLevel;
+import platform.game.level.Level;
 import platform.util.*;
 
 /**
@@ -11,16 +13,19 @@ public class Simulator implements World
 {
     private Loader loader;
     
-    private Vector currentCenter;
-    private double currentRadius;
-    private Vector expectedCenter;
-    private double expectedRadius;
+    private Vector currentCenter = Vector.ZERO;
+    private double currentRadius = 10.0;
+    private Vector expectedCenter = Vector.ZERO;
+    private double expectedRadius = 10.0;
     
     private SortedCollection<Actor> actors = new SortedCollection<>();
     private ArrayList<Actor> registered = new ArrayList<>();
     private ArrayList<Actor> unregistered = new ArrayList<>();
     
     private final Vector GRAVITY = new Vector(0, -9.81);
+    
+    private Level next = new BasicLevel();
+    private boolean transition = false;
     
     /**
      * Create a new simulator .
@@ -33,14 +38,8 @@ public class Simulator implements World
             throw new NullPointerException();
         
         this.loader = loader;
-        currentCenter = Vector.ZERO;
-        expectedCenter = Vector.ZERO;
-        currentRadius = 10.0;
-        expectedRadius = 10.0;
         
-        register(new Block(new Box(new Vector(-4, -1), new Vector(4, 0)), loader.getSprite("box.empty")));
-        register(new Block(new Box(new Vector(-2, 0), new Vector(-1, 10)), loader.getSprite("box.empty")));
-        register(new Player(new Vector(2, 3), new Vector(0, -1), loader.getSprite("blocker.happy")));
+        nextLevel();
     }
     
     /**
@@ -51,6 +50,40 @@ public class Simulator implements World
      */
     public void update(Input input, Output output)
     {
+        if(transition)
+        {
+            if(next == null)
+                next = Level.createDefaultLevel();
+            
+            Level level = next;
+            transition = false;
+            next = null;
+            actors.clear();
+            registered.clear();
+            unregistered.clear();
+            register(level);
+        }
+        
+        // Add registered actors
+        for(int i = 0; i < registered.size(); ++i)
+        {
+            Actor actor = registered.get(i);
+            if(!actors.contains(actor))
+            {
+                actor.register(this);
+                actors.add(actor);
+            }
+        }
+        registered.clear();
+        
+        // Remove unregistered actors
+        for(Actor actor : unregistered)
+        {
+            actor.unregister();
+            actors.remove(actor);
+        }
+        unregistered.clear();
+        
         double factor = 0.001;
         currentCenter = currentCenter.mul(1.0 - factor).add(expectedCenter.mul(factor));
         currentRadius = currentRadius * (1.0 - factor) + expectedRadius * factor;
@@ -74,25 +107,6 @@ public class Simulator implements World
         
         for(Actor actor : actors.descending())
             actor.postUpdate();
-        
-        // Add registered actors
-        for(Actor actor : registered)
-            if(!actors.contains(actor))
-            {
-                actor.register(this);
-                actors.add(actor);
-            }
-        
-        registered.clear();
-        
-        // Remove unregistered actors
-        for(Actor actor : unregistered)
-        {
-            actor.unregister();
-            actors.remove(actor);
-        }
-        
-        unregistered.clear();
     }
     
     @Override
@@ -116,6 +130,18 @@ public class Simulator implements World
     public Vector getGravity()
     {
         return GRAVITY;
+    }
+    
+    @Override
+    public void nextLevel()
+    {
+        transition = true;
+    }
+    
+    @Override
+    public void setNextLevel(Level level)
+    {
+        next = level;
     }
     
     @Override

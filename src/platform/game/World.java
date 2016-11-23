@@ -1,5 +1,6 @@
 package platform.game;
 
+import platform.game.level.Level;
 import platform.util.Box;
 import platform.util.Loader;
 import platform.util.Vector;
@@ -16,6 +17,13 @@ public interface World
     public Loader getLoader();
     
     public Vector getGravity();
+    
+    // permet d'indiquer que la transition à un autre niveau
+    // doit se faire :
+    public void nextLevel();
+    
+    // permet de passer au niveau level :
+    public void setNextLevel(Level level);
     
     /**
      * Set viewport location and size.
