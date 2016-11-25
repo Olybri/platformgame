@@ -3,6 +3,7 @@ package platform.game.actor;// Created by Loris Witschard on 24.11.16.
 import platform.game.Damage;
 import platform.util.Box;
 import platform.util.Input;
+import platform.util.Output;
 import platform.util.Vector;
 
 public class Heart extends Actor
@@ -42,11 +43,22 @@ public class Heart extends Actor
     }
     
     @Override
+    public void draw(Input input, Output output)
+    {
+        Vector offset = new Vector(0, 0.15 * Math.sin(input.getTime() * 2 +  + position.getAngle()));
+        if(sprite != null)
+            output.drawSprite(sprite, getBox().add(offset));
+    }
+    
+    @Override
     public void interact(Actor other)
     {
         super.interact(other);
         if(cooldown <= 0 && getBox().isColliding(other.getBox()))
             if(other.hurt(this, Damage.HEAL, 0.2, position))
+            {
+                getWorld().register(new Smoke(position));
                 cooldown = cooldownMax;
+            }
     }
 }
