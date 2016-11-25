@@ -1,5 +1,6 @@
 package platform.game.actor;// Created by Loris Witschard on 22.11.16.
 
+import platform.game.Damage;
 import platform.util.*;
 
 import java.awt.event.KeyEvent;
@@ -154,6 +155,12 @@ public class Player extends Actor
                     return false;
                 velocity = velocity.normalized().mul(-5);
             case VOID:
+                health -= amount;
+                return true;
+    
+            case FIRE:
+                velocity = new Vector(velocity.getX(), 3.0);
+                position = position.add(new Vector(0, 0.1));
                 health -= amount;
                 return true;
             

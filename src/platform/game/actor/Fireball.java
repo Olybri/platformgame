@@ -1,5 +1,6 @@
 package platform.game.actor;// Created by Loris Witschard on 21.11.16.
 
+import platform.game.Damage;
 import platform.util.*;
 
 public class Fireball extends Actor
@@ -53,7 +54,7 @@ public class Fireball extends Actor
         }
         else if(other != owner && other.getBox().isColliding(getBox()))
         {
-            if(other.hurt(this, Damage.FIRE, 1.0, getPosition()))
+            if(other.hurt(this, Damage.FIRE, 0.2, getPosition()))
                 getWorld().unregister(this);
         }
     }

@@ -1,5 +1,6 @@
 package platform.game.actor;// Created by Loris Witschard on 23.11.16.
 
+import platform.game.Damage;
 import platform.util.*;
 
 public class Jumper extends Actor

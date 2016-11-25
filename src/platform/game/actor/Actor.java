@@ -1,5 +1,6 @@
 package platform.game.actor;
 
+import platform.game.Damage;
 import platform.game.World;
 import platform.util.*;
 

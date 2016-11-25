@@ -3,7 +3,7 @@ package platform.game;
 import java.util.ArrayList;
 
 import platform.game.actor.Actor;
-import platform.game.actor.Damage;
+import platform.game.level.BasicInteract;
 import platform.game.level.BasicLevel;
 import platform.game.level.Level;
 import platform.util.*;
@@ -26,7 +26,7 @@ public class Simulator implements World
     
     private final Vector GRAVITY = new Vector(0, -9.81);
     
-    private Level next = new BasicLevel();
+    private Level next = new BasicInteract();
     private boolean transition = false;
     
     /**
