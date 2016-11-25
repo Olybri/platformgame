@@ -98,7 +98,13 @@ public class Player extends Actor
         }
         
         if(input.getKeyboardButton(KeyEvent.VK_B).isPressed())
+        {
             getWorld().hurt(getBox(), this, Damage.AIR, 1.0, getPosition());
+            getWorld().register(new Smoke(position));
+        }
+    
+        if(input.getKeyboardButton(KeyEvent.VK_E).isPressed())
+            getWorld().hurt(getBox(), this, Damage.ACTIVATION, 1.0, getPosition());
         
         super.update(input);
         double delta = input.getDeltaTime();
