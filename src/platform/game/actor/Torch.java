@@ -1,11 +1,12 @@
 package platform.game.actor;// Created by Loris Witschard on 25.11.16.
 
 import platform.game.Damage;
+import platform.game.Signal;
 import platform.util.Box;
 import platform.util.Input;
 import platform.util.Vector;
 
-public class Torch extends Actor
+public class Torch extends Actor implements Signal
 {
     private Vector position;
     private boolean lit = false;
@@ -64,5 +65,11 @@ public class Torch extends Actor
             sprite = getSprite("torch");
         else
             sprite = getSprite("torch.lit." + (variation < 0.3 ? "2" : "1"));
+    }
+    
+    @Override
+    public boolean isActive()
+    {
+        return lit;
     }
 }
