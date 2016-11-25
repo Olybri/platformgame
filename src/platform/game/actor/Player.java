@@ -147,11 +147,11 @@ public class Player extends Actor
         switch(type)
         {
             case AIR:
-                velocity = getPosition().sub(location).resized(amount);
+                velocity = new Vector(position.getX(), position.sub(location).resized(amount).getY());
                 return true;
             
             case PHYSICAL:
-                if(velocity.getY() > -1 || position.getY() < location.getY())
+                if(velocity.getY() > 0 || position.getY() < location.getY())
                     return false;
                 velocity = velocity.normalized().mul(-5);
             case VOID:
@@ -171,6 +171,9 @@ public class Player extends Actor
                     return true;
                 }
                 return false;
+            
+            case ACTIVATION:
+                return true;
             
             default:
                 return super.hurt(instigator, type, amount, location);
