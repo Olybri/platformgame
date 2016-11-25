@@ -1,6 +1,6 @@
 package platform.game.level;
 
-import platform.game.Actor;
+import platform.game.actor.Actor;
 import platform.util.Input;
 import platform.util.Output;
 import platform.util.Sprite;

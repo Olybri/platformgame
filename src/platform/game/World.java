@@ -1,5 +1,7 @@
 package platform.game;
 
+import platform.game.actor.Actor;
+import platform.game.actor.Damage;
 import platform.game.level.Level;
 import platform.util.Box;
 import platform.util.Loader;
@@ -24,6 +26,8 @@ public interface World
     
     // permet de passer au niveau level :
     public void setNextLevel(Level level);
+    
+    public int hurt(Box area, Actor instigator, Damage type, double amount, Vector location);
     
     /**
      * Set viewport location and size.

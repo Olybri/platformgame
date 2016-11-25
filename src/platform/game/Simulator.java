@@ -2,6 +2,8 @@ package platform.game;
 
 import java.util.ArrayList;
 
+import platform.game.actor.Actor;
+import platform.game.actor.Damage;
 import platform.game.level.BasicLevel;
 import platform.game.level.Level;
 import platform.util.*;
@@ -15,8 +17,8 @@ public class Simulator implements World
     
     private Vector currentCenter = Vector.ZERO;
     private double currentRadius = 10.0;
-    private Vector expectedCenter = Vector.ZERO;
-    private double expectedRadius = 10.0;
+    private Vector expectedCenter = currentCenter;
+    private double expectedRadius = currentRadius;
     
     private SortedCollection<Actor> actors = new SortedCollection<>();
     private ArrayList<Actor> registered = new ArrayList<>();
@@ -136,6 +138,11 @@ public class Simulator implements World
     public void nextLevel()
     {
         transition = true;
+        
+        currentCenter = Vector.ZERO;
+        currentRadius = 10.0;
+        expectedCenter = currentCenter;
+        expectedRadius = currentRadius;
     }
     
     @Override
@@ -154,5 +161,17 @@ public class Simulator implements World
     public void unregister(Actor actor)
     {
         unregistered.add(actor);
+    }
+    
+    @Override
+    public int hurt(Box area, Actor instigator, Damage type, double amount, Vector location)
+    {
+        int victims = 0;
+        for(Actor actor : actors)
+            if(area.isColliding(actor.getBox()))
+                if(actor.hurt(instigator, type, amount, location))
+                    ++victims;
+        
+        return victims;
     }
 }

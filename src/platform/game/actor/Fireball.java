@@ -1,4 +1,4 @@
-package platform.game;// Created by Loris Witschard on 21.11.16.
+package platform.game.actor;// Created by Loris Witschard on 21.11.16.
 
 import platform.util.*;
 
@@ -7,8 +7,9 @@ public class Fireball extends Actor
     private Vector position;
     private Vector velocity;
     private final double SIZE = 0.4;
+    private Actor owner;
     
-    public Fireball(Vector position, Vector velocity, Sprite sprite)
+    public Fireball(Vector position, Vector velocity, Sprite sprite, Actor owner)
     {
         if(position == null || velocity == null || sprite == null)
             throw new NullPointerException();
@@ -16,6 +17,7 @@ public class Fireball extends Actor
         this.position = position;
         this.velocity = velocity;
         this.sprite = sprite;
+        this.owner = owner;
         
         priority = 666;
     }
@@ -48,6 +50,11 @@ public class Fireball extends Actor
                 position = position.add(delta);
                 velocity = velocity.mirrored(delta);
             }
+        }
+        else if(other != owner && other.getBox().isColliding(getBox()))
+        {
+            if(other.hurt(this, Damage.FIRE, 1.0, getPosition()))
+                getWorld().unregister(this);
         }
     }
     
