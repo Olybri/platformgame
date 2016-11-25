@@ -17,7 +17,7 @@ public class Block extends Actor
         this.box = box;
         this.sprite = sprite;
         
-        priority = 0;
+        priority = 1;
     }
     
     @Override

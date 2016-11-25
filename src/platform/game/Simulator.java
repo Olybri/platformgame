@@ -1,12 +1,11 @@
 package platform.game;
 
-import java.util.ArrayList;
-
 import platform.game.actor.Actor;
 import platform.game.level.BasicInteract;
-import platform.game.level.BasicLevel;
 import platform.game.level.Level;
 import platform.util.*;
+
+import java.util.ArrayList;
 
 /**
  * Basic implementation of world, managing a complete collection of actors.
@@ -120,6 +119,12 @@ public class Simulator implements World
             throw new IllegalArgumentException("radius must be positive");
         expectedCenter = center;
         expectedRadius = radius;
+    }
+    
+    @Override
+    public Vector getViewCenter()
+    {
+        return currentCenter;
     }
     
     @Override

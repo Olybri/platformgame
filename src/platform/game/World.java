@@ -11,22 +11,21 @@ import platform.util.Vector;
  */
 public interface World
 {
-    
     /**
      * @return associated loader, not null
      */
-    public Loader getLoader();
+    Loader getLoader();
     
-    public Vector getGravity();
+    Vector getGravity();
     
     // permet d'indiquer que la transition à un autre niveau
     // doit se faire :
-    public void nextLevel();
+    void nextLevel();
     
     // permet de passer au niveau level :
-    public void setNextLevel(Level level);
+    void setNextLevel(Level level);
     
-    public int hurt(Box area, Actor instigator, Damage type, double amount, Vector location);
+    int hurt(Box area, Actor instigator, Damage type, double amount, Vector location);
     
     /**
      * Set viewport location and size.
@@ -34,9 +33,11 @@ public interface World
      * @param center viewport center , not null
      * @param radius viewport radius , positive
      */
-    public void setView(Vector center, double radius);
+    void setView(Vector center, double radius);
     
-    public void register(Actor actor);
+    Vector getViewCenter();
     
-    public void unregister(Actor actor);
+    void register(Actor actor);
+    
+    void unregister(Actor actor);
 }
