@@ -8,16 +8,24 @@ import platform.util.*;
 public class Block extends Actor
 {
     private Box box;
+    private String spriteName;
     
-    public Block(Box box, Sprite sprite)
+    public Block(Box box, String spriteName)
     {
-        if(box == null || sprite == null)
+        if(box == null || spriteName == null)
             throw new NullPointerException();
         
         this.box = box;
-        this.sprite = sprite;
+        this.spriteName = spriteName;
         
         priority = 1;
+    }
+    
+    @Override
+    public void update(Input input)
+    {
+        super.update(input);
+        sprite = getSprite(spriteName);
     }
     
     @Override

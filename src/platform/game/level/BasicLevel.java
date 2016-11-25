@@ -16,9 +16,9 @@ public class BasicLevel extends Level
         world.setNextLevel(new BasicLevel());
         
         // Create blocks
-        world.register(new Block(new Box(new Vector(0, 0), 4, 2), getSprite("stone.broken.2")));
-        world.register(new Block(new Box(new Vector(4, 0), 4, 2), getSprite("stone.broken.2")));
-        world.register(new Block(new Box(new Vector(-1.5, 1.5), 1, 1), getSprite("stone.broken.1")));
+        world.register(new Block(new Box(new Vector(0, 0), 4, 2), "stone.broken.2"));
+        world.register(new Block(new Box(new Vector(4, 0), 4, 2), "stone.broken.2"));
+        world.register(new Block(new Box(new Vector(-1.5, 1.5), 1, 1), "stone.broken.1"));
         world.register(new Jumper(new Vector(0.5, 1.5)));
         world.register(new Heart(new Vector(-1.5, 2.5)));
         world.register(new Spike(new Vector(4.5, 1.5)));
