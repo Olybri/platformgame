@@ -11,6 +11,8 @@ public class Lever extends Actor implements Signal
     private boolean active = false;
     private Vector position;
     private final double SIZE = 1;
+    private double countdown = 0;
+    private double countdownMax = 5;
     
     public Lever(Vector position)
     {
@@ -32,6 +34,11 @@ public class Lever extends Actor implements Signal
     public void update(Input input)
     {
         super.update(input);
+        
+        countdown -= input.getDeltaTime();
+        if(countdown <= 0)
+            active = false;
+        
         sprite = getSprite(active ? "lever.left" : "lever.right");
     }
     
@@ -42,6 +49,7 @@ public class Lever extends Actor implements Signal
         {
             case ACTIVATION:
                 active = !active;
+                countdown = countdownMax;
                 return true;
             
             default:

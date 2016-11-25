@@ -25,7 +25,7 @@ public class BasicInteract extends Level
         world.register(new Block(new Box(new Vector(-2, 2), 2, 2), "stone.broken.1"));
         world.register(new Block(new Box(new Vector(6, 0), 2, 2), "stone.broken.1"));
         world.register(new Block(new Box(new Vector(10, 2), 2, 2), "stone.broken.1"));
-        world.register(new Jumper(new Vector(0, 1.5)));
+//        world.register(new Jumper(new Vector(0, 1.5)));
         world.register(new Heart(new Vector(-2, 3.5)));
         world.register(new Spike(new Vector(4, 3.5)));
         Torch torch = new Torch(new Vector(2.5, 2.5), false);
@@ -37,6 +37,7 @@ public class BasicInteract extends Level
         world.register(lever);
         world.register(new Door(new Vector(-4.5, 1.5), ItemColor.RED, key));
         world.register(new Door(new Vector(-4.5, 2.5), ItemColor.GREEN, lever));
+        world.register(new Mover(new Vector(0, 1.75), new Vector(0, 4), 2, 1.5, 2, "box.double", torch));
         
         world.register(new Limits(new Box(new Vector(0, -30), 1000, 30)));
         world.register(new Background(getSprite("bg.grasslands")));
