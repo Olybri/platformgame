@@ -61,6 +61,12 @@ public class Player extends Actor
             return;
         }
         
+        if(colliding)
+        {
+            double scale = Math.pow(0.0005, input.getDeltaTime());
+            velocity = velocity.mul(scale);
+        }
+        
         double maxSpeed = 4.0;
         if(Command.isButtonDown("walk_right"))
         {
@@ -84,11 +90,6 @@ public class Player extends Actor
                 velocity = new Vector(speed, velocity.getY());
             }
         }
-        if(!Command.isButtonDown("walk_left") && !Command.isButtonDown("walk_right"))
-        {
-            if(colliding && velocity.getX() != 0)
-                velocity = velocity.mul(0.9);
-        }
         
         if(colliding && Command.isButtonPressed("jump"))
             velocity = new Vector(velocity.getX(), 7.0);
@@ -104,7 +105,7 @@ public class Player extends Actor
             getWorld().hurt(getBox(), this, Damage.AIR, 1.0, getPosition());
             getWorld().register(new Smoke(position));
         }
-    
+        
         if(Command.isButtonPressed("activate"))
             getWorld().hurt(getBox(), this, Damage.ACTIVATION, 1.0, getPosition());
         
@@ -164,7 +165,7 @@ public class Player extends Actor
             case VOID:
                 health -= amount;
                 return true;
-    
+            
             case FIRE:
                 velocity = new Vector(velocity.getX(), 3.0);
                 position = position.add(new Vector(0, 0.1));
