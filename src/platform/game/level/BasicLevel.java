@@ -25,7 +25,7 @@ public class BasicLevel extends Level
         world.register(new Torch(new Vector(3.5, 2.5), false));
         world.register(new Limits(new Box(new Vector(0, -30), 1000, 30)));
         
-        Player player = new Player(new Vector(2, 2), getSprite("blocker.happy"));
+        Player player = new Player(new Vector(2, 2));
         world.register(player);
         world.register(new Overlay(player));
     }

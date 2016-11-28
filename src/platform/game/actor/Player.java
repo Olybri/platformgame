@@ -17,13 +17,12 @@ public class Player extends Actor
     
     private boolean colliding = false;
     
-    public Player(Vector position, Sprite sprite)
+    public Player(Vector position)
     {
-        if(position == null || sprite == null)
+        if(position == null)
             throw new NullPointerException();
         
         this.position = position;
-        this.sprite = sprite;
         
         priority = 42;
     }
@@ -53,6 +52,8 @@ public class Player extends Actor
     public void update(Input input)
     {
         super.update(input);
+        
+        sprite = getSprite("blocker.happy");
         
         if(health <= 0)
         {
@@ -94,9 +95,8 @@ public class Player extends Actor
         
         if(Command.isButtonPressed("attack"))
         {
-            Sprite fireballSprite = getSprite("fireball");
             Vector fireballVelocity = velocity.add(velocity.resized(2.0));
-            getWorld().register(new Fireball(position, fireballVelocity, fireballSprite, this));
+            getWorld().register(new Fireball(position, fireballVelocity, this));
         }
         
         if(Command.isButtonPressed("blow"))

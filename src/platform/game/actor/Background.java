@@ -4,14 +4,23 @@ import platform.util.*;
 
 public class Background extends Actor
 {
-    public Background(Sprite sprite)
+    private String spriteName;
+    
+    public Background(String spriteName)
     {
-        if(sprite == null)
+        if(spriteName == null)
             throw new NullPointerException();
         
-        this.sprite = sprite;
+        this.spriteName = spriteName;
         
         priority = 0;
+    }
+    
+    @Override
+    public void preUpdate()
+    {
+        super.preUpdate();
+        sprite = getSprite(spriteName);
     }
     
     @Override

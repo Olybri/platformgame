@@ -10,14 +10,13 @@ public class Fireball extends Actor
     private final double SIZE = 0.4;
     private Actor owner;
     
-    public Fireball(Vector position, Vector velocity, Sprite sprite, Actor owner)
+    public Fireball(Vector position, Vector velocity, Actor owner)
     {
-        if(position == null || velocity == null || sprite == null)
+        if(position == null || velocity == null)
             throw new NullPointerException();
         
         this.position = position;
         this.velocity = velocity;
-        this.sprite = sprite;
         this.owner = owner;
         
         priority = 666;
@@ -33,6 +32,9 @@ public class Fireball extends Actor
     public void update(Input input)
     {
         super.update(input);
+        
+        sprite = getSprite("fireball");
+        
         double delta = input.getDeltaTime();
         Vector acceleration = getWorld().getGravity();
         velocity = velocity.add(acceleration.mul(delta));

@@ -40,9 +40,9 @@ public class BasicInteract extends Level
         world.register(new Mover(new Vector(0, 1.75), new Vector(0, 4), 2, 1.5, 2, "box.double", torch));
         
         world.register(new Limits(new Box(new Vector(0, -30), 1000, 30)));
-        world.register(new Background(getSprite("bg.grasslands")));
+        world.register(new Background("bg.grasslands"));
         
-        Player player = new Player(new Vector(1.5, 2), getSprite("blocker.happy"));
+        Player player = new Player(new Vector(1.5, 2));
         world.register(player);
         world.register(new Overlay(player));
     }

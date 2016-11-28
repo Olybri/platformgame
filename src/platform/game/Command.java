@@ -43,11 +43,6 @@ public class Command
                 
                 commands.put(line.split(":")[0], value);
             }
-//
-//            for(String s : commands.keySet())
-//            {
-//                System.out.println(s + " -> " + commands.get(s));
-//            }
         }
         catch(Exception e)
         {
