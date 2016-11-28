@@ -1,5 +1,6 @@
 package platform.game.actor;// Created by Loris Witschard on 22.11.16.
 
+import platform.game.Command;
 import platform.game.Damage;
 import platform.util.*;
 
@@ -51,6 +52,8 @@ public class Player extends Actor
     @Override
     public void update(Input input)
     {
+        super.update(input);
+        
         if(health <= 0)
         {
             getWorld().nextLevel();
@@ -58,7 +61,7 @@ public class Player extends Actor
         }
         
         double maxSpeed = 4.0;
-        if(input.getKeyboardButton(KeyEvent.VK_RIGHT).isDown())
+        if(Command.isButtonDown("walk_right"))
         {
             if(velocity.getX() < maxSpeed)
             {
@@ -69,7 +72,7 @@ public class Player extends Actor
                 velocity = new Vector(speed, velocity.getY());
             }
         }
-        if(input.getKeyboardButton(KeyEvent.VK_LEFT).isDown())
+        if(Command.isButtonDown("walk_left"))
         {
             if(velocity.getX() > -maxSpeed)
             {
@@ -80,33 +83,31 @@ public class Player extends Actor
                 velocity = new Vector(speed, velocity.getY());
             }
         }
-        if(!input.getKeyboardButton(KeyEvent.VK_LEFT).isDown()
-            && !input.getKeyboardButton(KeyEvent.VK_RIGHT).isDown())
+        if(!Command.isButtonDown("walk_left") && !Command.isButtonDown("walk_right"))
         {
             if(colliding && velocity.getX() != 0)
                 velocity = velocity.mul(0.99);
         }
         
-        if(colliding && input.getKeyboardButton(KeyEvent.VK_UP).isPressed())
+        if(colliding && Command.isButtonPressed("jump"))
             velocity = new Vector(velocity.getX(), 7.0);
         
-        if(input.getKeyboardButton(KeyEvent.VK_SPACE).isPressed())
+        if(Command.isButtonPressed("attack"))
         {
             Sprite fireballSprite = getSprite("fireball");
             Vector fireballVelocity = velocity.add(velocity.resized(2.0));
             getWorld().register(new Fireball(position, fireballVelocity, fireballSprite, this));
         }
         
-        if(input.getKeyboardButton(KeyEvent.VK_B).isPressed())
+        if(Command.isButtonPressed("blow"))
         {
             getWorld().hurt(getBox(), this, Damage.AIR, 1.0, getPosition());
             getWorld().register(new Smoke(position));
         }
     
-        if(input.getKeyboardButton(KeyEvent.VK_E).isPressed())
+        if(Command.isButtonPressed("activate"))
             getWorld().hurt(getBox(), this, Damage.ACTIVATION, 1.0, getPosition());
         
-        super.update(input);
         double delta = input.getDeltaTime();
         Vector acceleration = getWorld().getGravity();
         velocity = velocity.add(acceleration.mul(delta));

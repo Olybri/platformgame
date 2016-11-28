@@ -1,0 +1,6 @@
+walk_left: leftarrow
+walk_right: rightarrow
+jump: uparrow
+attack: space
+activate: e
+blow: b
