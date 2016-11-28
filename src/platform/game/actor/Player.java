@@ -87,7 +87,7 @@ public class Player extends Actor
         if(!Command.isButtonDown("walk_left") && !Command.isButtonDown("walk_right"))
         {
             if(colliding && velocity.getX() != 0)
-                velocity = velocity.mul(0.99);
+                velocity = velocity.mul(0.9);
         }
         
         if(colliding && Command.isButtonPressed("jump"))
