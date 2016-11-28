@@ -24,7 +24,7 @@ public abstract class Particle extends Actor
         this.frameDuration = frameDuration;
         
         this.sprites = sprites;
-        priority = 9999;
+        priority = 900;
     }
     
     @Override

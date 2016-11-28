@@ -24,7 +24,7 @@ public class Player extends Actor
         
         this.position = position;
         
-        priority = 42;
+        priority = 40;
     }
     
     public double getHealth()

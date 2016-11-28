@@ -23,6 +23,8 @@ public class Door extends Block
         this.position = position;
         this.signal = signal;
         this.color = color;
+        
+        priority = 20;
     }
     
     @Override

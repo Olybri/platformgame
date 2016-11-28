@@ -17,7 +17,7 @@ public class Overlay extends Actor
         
         this.player = player;
         
-        priority = 1000;
+        priority = 900;
     }
     
     @Override

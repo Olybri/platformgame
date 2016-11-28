@@ -25,7 +25,7 @@ public class Exit extends Actor
         this.next = next;
         this.signal = signal;
         
-        priority = 5;
+        priority = 20;
     }
     
     @Override
@@ -45,7 +45,7 @@ public class Exit extends Actor
         }
         
         sprite = getSprite(signal.isActive() ? "door.open" : "door.closed");
-        priority = open ? 50 : 5;
+        priority = open ? 50 : 20;
     }
     
     @Override

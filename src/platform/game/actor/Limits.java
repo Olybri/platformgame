@@ -15,7 +15,7 @@ public class Limits extends Actor
         
         this.box = box;
         
-        priority = 1000;
+        priority = 2000;
     }
     
     @Override

@@ -26,7 +26,7 @@ public class Spike extends Actor
     @Override
     public Box getBox()
     {
-        return new Box(position, SIZE, SIZE);
+        return new Box(position, SIZE, SIZE / 2);
     }
     
     @Override
