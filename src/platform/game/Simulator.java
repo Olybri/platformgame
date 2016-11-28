@@ -14,10 +14,10 @@ public class Simulator implements World
 {
     private Loader loader;
     
-    private Vector currentCenter = Vector.ZERO;
-    private double currentRadius = 10.0;
-    private Vector expectedCenter = currentCenter;
-    private double expectedRadius = currentRadius;
+    private Vector currentCenter;
+    private double currentRadius;
+    private Vector expectedCenter;
+    private double expectedRadius;
     
     private SortedCollection<Actor> actors = new SortedCollection<>();
     private ArrayList<Actor> registered = new ArrayList<>();
@@ -85,7 +85,7 @@ public class Simulator implements World
         }
         unregistered.clear();
         
-        double factor = 0.001;
+        double factor = 2 * input.getDeltaTime();
         currentCenter = currentCenter.mul(1.0 - factor).add(expectedCenter.mul(factor));
         currentRadius = currentRadius * (1.0 - factor) + expectedRadius * factor;
         
@@ -145,7 +145,7 @@ public class Simulator implements World
         transition = true;
         
         currentCenter = Vector.ZERO;
-        currentRadius = 10.0;
+        currentRadius = 8.0;
         expectedCenter = currentCenter;
         expectedRadius = currentRadius;
     }
