@@ -17,7 +17,7 @@ public class Door extends Block
     {
         super(new Box(position, 1, 1), "lock." + color.toString());
         
-        if(position == null || color == null)
+        if(position == null)
             throw new NullPointerException();
         
         this.position = position;
@@ -29,6 +29,7 @@ public class Door extends Block
     public void update(Input input)
     {
         super.update(input);
+        
         if(signal.isActive() && !open)
         {
             getWorld().register(new Smoke(position));
