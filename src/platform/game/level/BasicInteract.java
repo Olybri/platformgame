@@ -56,5 +56,6 @@ public class BasicInteract extends Level
         Player player = new Player(new Vector(1.5, 2));
         world.register(player);
         world.register(new Overlay(player));
+        world.register(new AntiPlayer(player, 3));
     }
 }
