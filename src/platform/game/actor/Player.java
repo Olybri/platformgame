@@ -15,7 +15,7 @@ public class Player extends Actor
     
     private double healthMax = 1;
     private double health = healthMax;
-    
+    private boolean hasMoved = false;
     private HashMap<Side, Boolean> collisions = new HashMap<>();
     
     private enum Side
@@ -49,6 +49,11 @@ public class Player extends Actor
     public double getSize()
     {
         return SIZE;
+    }
+    
+    public boolean hasMoved()
+    {
+        return hasMoved;
     }
     
     @Override
@@ -85,6 +90,7 @@ public class Player extends Actor
         double maxSpeed = 4.0;
         if(Command.isButtonDown("walk_right"))
         {
+            hasMoved = true;
             if(velocity.getX() < maxSpeed)
             {
                 double increase = 60.0 * input.getDeltaTime();
@@ -96,6 +102,7 @@ public class Player extends Actor
         }
         if(Command.isButtonDown("walk_left"))
         {
+            hasMoved = true;
             if(velocity.getX() > -maxSpeed)
             {
                 double increase = 60.0 * input.getDeltaTime();
@@ -107,7 +114,10 @@ public class Player extends Actor
         }
         
         if(collisions.get(Side.DOWN) && Command.isButtonPressed("jump"))
+        {
+            hasMoved = true;
             velocity = new Vector(velocity.getX(), 7.0);
+        }
         
         if(Command.isButtonPressed("attack"))
         {

@@ -3,6 +3,7 @@ package platform.game.actor;// Created by Loris Witschard on 11/29/2016.
 import platform.game.Damage;
 import platform.util.Box;
 import platform.util.Input;
+import platform.util.Output;
 import platform.util.Vector;
 
 import java.util.Iterator;
@@ -45,15 +46,18 @@ public class AntiPlayer extends Actor
     {
         super.update(input);
     
-        time += input.getDeltaTime();
-        cooldown -= input.getDeltaTime();
-    
+        if(delta > 1 && time > delta - 1 && !player.hasMoved())
+            return;
+        
         if(time > delta && !alive)
         {
             alive = true;
             sprite = getSprite("blocker.sad");
             getWorld().register(new Smoke(currentPosition));
         }
+    
+        time += input.getDeltaTime();
+        cooldown -= input.getDeltaTime();
         
         positions.put(time + delta, player.getPosition());
     
@@ -85,8 +89,15 @@ public class AntiPlayer extends Actor
     {
         super.interact(other);
     
-        if(time > delta && cooldown <= 0 && getBox().isColliding(other.getBox()))
+        if(alive && cooldown <= 0 && getBox().isColliding(other.getBox()))
             if(other.hurt(this, Damage.PHYSICAL, 0.5, currentPosition))
                 cooldown = cooldownMax;
+    }
+    
+    @Override
+    public void draw(Input input, Output output)
+    {
+        if(sprite != null)
+            output.drawSprite(sprite, getBox(), 0, 0.6);
     }
 }
