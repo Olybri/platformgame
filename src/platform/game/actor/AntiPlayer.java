@@ -19,9 +19,11 @@ public class AntiPlayer extends Actor
     
     private Vector currentPosition;
     private Vector nextPosition;
+    private double currentTime = 0;
     private double nextTime = 0;
     private double time = 0;
     private boolean alive = false;
+    private Vector velocity;
     
     private double cooldown = 0;
     private final double cooldownMax = 0.3;
@@ -35,7 +37,7 @@ public class AntiPlayer extends Actor
         
         nextPosition = player.getPosition();
         currentPosition = nextPosition;
-    
+        
         sprite = null;
         
         priority = 800;
@@ -45,7 +47,7 @@ public class AntiPlayer extends Actor
     public void update(Input input)
     {
         super.update(input);
-    
+        
         if(delta > 1 && time > delta - 1 && !player.hasMoved())
             return;
         
@@ -55,14 +57,18 @@ public class AntiPlayer extends Actor
             sprite = getSprite("blocker.sad");
             getWorld().register(new Smoke(currentPosition));
         }
-    
+        
         time += input.getDeltaTime();
         cooldown -= input.getDeltaTime();
         
         positions.put(time + delta, player.getPosition());
-    
+        
         if(time >= nextTime)
+        {
+            velocity = nextPosition.sub(currentPosition).mul(1 / (nextTime - currentTime));
             currentPosition = nextPosition;
+            currentTime = nextTime;
+        }
         
         Iterator it = positions.entrySet().iterator();
         while(it.hasNext())
@@ -88,7 +94,7 @@ public class AntiPlayer extends Actor
     public void interact(Actor other)
     {
         super.interact(other);
-    
+        
         if(alive && cooldown <= 0 && getBox().isColliding(other.getBox()))
             if(other.hurt(this, Damage.PHYSICAL, 0.5, currentPosition))
                 cooldown = cooldownMax;
@@ -98,6 +104,6 @@ public class AntiPlayer extends Actor
     public void draw(Input input, Output output)
     {
         if(sprite != null)
-            output.drawSprite(sprite, getBox(), 0, 0.6);
+            output.drawSprite(sprite, getBox(), velocity.getX() / 16, 0.6);
     }
 }

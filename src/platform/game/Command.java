@@ -16,6 +16,7 @@ public class Command
 {
     private static Input input;
     private static HashMap<String, Integer> commands = new HashMap<>();
+    private static boolean enabled = true;
     
     public static void load(String filename, Input commandInput)
     {
@@ -31,14 +32,29 @@ public class Command
                 String control = line.split(": ")[1];
                 switch(control)
                 {
-                    case "leftarrow": value = KeyEvent.VK_LEFT; break;
-                    case "rightarrow": value = KeyEvent.VK_RIGHT; break;
-                    case "uparrow": value = KeyEvent.VK_UP; break;
-                    case "downarrow": value = KeyEvent.VK_DOWN; break;
-                    case "space": value = KeyEvent.VK_SPACE; break;
-                    case "enter": value = KeyEvent.VK_ENTER; break;
-                    case "backspace": value = KeyEvent.VK_BACK_SPACE; break;
-                    default: value = Character.toUpperCase(control.charAt(0));
+                    case "leftarrow":
+                        value = KeyEvent.VK_LEFT;
+                        break;
+                    case "rightarrow":
+                        value = KeyEvent.VK_RIGHT;
+                        break;
+                    case "uparrow":
+                        value = KeyEvent.VK_UP;
+                        break;
+                    case "downarrow":
+                        value = KeyEvent.VK_DOWN;
+                        break;
+                    case "space":
+                        value = KeyEvent.VK_SPACE;
+                        break;
+                    case "enter":
+                        value = KeyEvent.VK_ENTER;
+                        break;
+                    case "backspace":
+                        value = KeyEvent.VK_BACK_SPACE;
+                        break;
+                    default:
+                        value = Character.toUpperCase(control.charAt(0));
                 }
                 
                 commands.put(line.split(":")[0], value);
@@ -49,7 +65,12 @@ public class Command
             e.printStackTrace();
         }
     }
-
+    
+    public static void enable(boolean value)
+    {
+        enabled = value;
+    }
+    
     public static Button getButton(String key)
     {
         return input.getKeyboardButton(commands.get(key));
@@ -57,11 +78,11 @@ public class Command
     
     public static boolean isButtonDown(String key)
     {
-        return getButton(key).isDown();
+        return getButton(key).isDown() && enabled;
     }
     
     public static boolean isButtonPressed(String key)
     {
-        return getButton(key).isPressed();
+        return getButton(key).isPressed() && enabled;
     }
 }

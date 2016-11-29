@@ -9,6 +9,8 @@ public class Fireball extends Actor
     private Vector velocity;
     private final double SIZE = 0.4;
     private Actor owner;
+    private double lifeTime = 0;
+    private double lifeTimeMax = 5;
     
     public Fireball(Vector position, Vector velocity, Actor owner)
     {
@@ -39,6 +41,13 @@ public class Fireball extends Actor
         Vector acceleration = getWorld().getGravity();
         velocity = velocity.add(acceleration.mul(delta));
         position = position.add(velocity.mul(delta));
+        
+        lifeTime += delta;
+        if(lifeTime >= lifeTimeMax)
+        {
+            getWorld().unregister(this);
+            getWorld().register(new Smoke(position));
+        }
     }
     
     @Override
@@ -64,6 +73,6 @@ public class Fireball extends Actor
     @Override
     public void draw(Input input, Output output)
     {
-        output.drawSprite(sprite, getBox(), input.getTime());
+        output.drawSprite(sprite, getBox(), input.getTime() * 3);
     }
 }

@@ -85,7 +85,7 @@ public class Simulator implements World
         }
         unregistered.clear();
         
-        double factor = 2 * input.getDeltaTime();
+        double factor = 4 * input.getDeltaTime();
         currentCenter = currentCenter.mul(1.0 - factor).add(expectedCenter.mul(factor));
         currentRadius = currentRadius * (1.0 - factor) + expectedRadius * factor;
         

@@ -4,7 +4,6 @@ import platform.game.Command;
 import platform.game.Damage;
 import platform.util.*;
 
-import java.awt.event.KeyEvent;
 import java.util.HashMap;
 
 public class Player extends Actor
@@ -16,7 +15,12 @@ public class Player extends Actor
     private double healthMax = 1;
     private double health = healthMax;
     private boolean hasMoved = false;
+    private boolean dead = false;
     private HashMap<Side, Boolean> collisions = new HashMap<>();
+    
+    private double cooldown = 0;
+    private final double hurtCooldownMax = 1;
+    private final double deathCooldownMax = 2;
     
     private enum Side
     {
@@ -56,6 +60,19 @@ public class Player extends Actor
         return hasMoved;
     }
     
+    private boolean addHealth(double value)
+    {
+        if(health + value <= 0)
+            cooldown = deathCooldownMax;
+        else if(value < 0)
+            cooldown = hurtCooldownMax;
+        else if(health >= healthMax)
+            return false;
+        
+        health = Math.min(healthMax, health + value);
+        return true;
+    }
+    
     @Override
     public Box getBox()
     {
@@ -67,19 +84,27 @@ public class Player extends Actor
     {
         super.update(input);
         
-        sprite = getSprite("blocker.happy");
+        cooldown -= input.getDeltaTime();
         
-        if(health <= 0)
+        if(health <= 0 && !dead)
+        {
+            dead = true;
+            Command.enable(false);
+            getWorld().register(new Fadeout(deathCooldownMax, 1));
+        }
+        
+        if(dead && cooldown <= 0)
         {
             getWorld().nextLevel();
+            Command.enable(true);
             return;
         }
         
         if(collisions.get(Side.DOWN) && collisions.get(Side.UP))
-            health -= 0.4;
-    
+            addHealth(-0.4);
+        
         if(collisions.get(Side.LEFT) && collisions.get(Side.RIGHT))
-            health -= 0.4;
+            addHealth(-0.4);
         
         if(collisions.get(Side.DOWN))
         {
@@ -198,7 +223,7 @@ public class Player extends Actor
     @Override
     public boolean hurt(Actor instigator, Damage type, double amount, Vector location)
     {
-        if(instigator == this)
+        if(instigator == this || dead)
             return false;
         
         switch(type)
@@ -206,7 +231,7 @@ public class Player extends Actor
             case AIR:
                 velocity = new Vector(position.getX(), position.sub(location).resized(amount).getY());
                 return true;
-                
+            
             case SPIKE:
                 if(velocity.getY() > 0 || position.getY() < location.getY())
                     return false;
@@ -216,22 +241,17 @@ public class Player extends Actor
                 position = position.add(new Vector(0, 0.1));
                 // fallthrough
             case VOID:
-                health -= amount;
+                addHealth(-amount);
                 return true;
             
             case FIRE:
                 velocity = new Vector(velocity.getX(), 3.0);
                 position = position.add(new Vector(0, 0.1));
-                health -= amount;
+                addHealth(-amount);
                 return true;
             
             case HEAL:
-                if(health < healthMax)
-                {
-                    health = Math.min(health + amount, healthMax);
-                    return true;
-                }
-                return false;
+                return addHealth(amount);
             
             case ACTIVATION:
                 return true;
@@ -239,5 +259,32 @@ public class Player extends Actor
             default:
                 return super.hurt(instigator, type, amount, location);
         }
+    }
+    
+    @Override
+    public void draw(Input input, Output output)
+    {
+        double size = SIZE;
+        if(cooldown > 0)
+            if(health > 0)
+            {
+                size += +SIZE * Math.cos((hurtCooldownMax - cooldown) * 10) * cooldown / 3 / hurtCooldownMax;
+                sprite = getSprite("blocker.sad");
+            }
+            else
+            {
+                size += +SIZE * Math.cos((deathCooldownMax - cooldown) * 10) * cooldown / 3 / deathCooldownMax;
+                sprite = getSprite("blocker.dead");
+            }
+        else
+            sprite = getSprite("blocker.happy");
+        
+        Box box = new Box(position, size, size);
+        
+        double angle = velocity.getX() / 16;
+        if(dead)
+            angle = Math.min((deathCooldownMax - cooldown) * 2, Math.PI / 2) * (velocity.getX() > 0 ? -1 : 1);
+        
+        output.drawSprite(sprite, box, angle);
     }
 }
