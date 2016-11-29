@@ -24,10 +24,12 @@ public class BasicInteract extends Level
         world.register(new Block(new Box(new Vector(4, 1), 2, 4), "stone.broken.8"));
         world.register(new Block(new Box(new Vector(-2, 2), 2, 2), "stone.broken.1"));
         world.register(new Block(new Box(new Vector(6, 0), 2, 2), "stone.broken.1"));
-        world.register(new Block(new Box(new Vector(10, 2), 2, 2), "stone.broken.1"));
+        world.register(new Platform(new Box(new Vector(10, 2), 2, 2), "castle.middle"));
+        world.register(new Hill(new Box(new Vector(8, 2), 2, 2), "castle.hill.left", false));
+        world.register(new Hill(new Box(new Vector(13, 2), 4, 2), "castle.hill.right", true));
 //        world.register(new Jumper(new Vector(0, 1.5)));
         world.register(new Heart(new Vector(-2, 3.5)));
-        world.register(new Spike(new Vector(4, 3.25)));
+//        world.register(new Spike(new Vector(4, 3.25)));
         Torch torch = new Torch(new Vector(2.5, 2.5), false);
         world.register(torch);
     
