@@ -70,6 +70,12 @@ public class Player extends Actor
             return;
         }
         
+        if(collisions.get(Side.DOWN) && collisions.get(Side.UP))
+            health -= 0.4;
+    
+        if(collisions.get(Side.LEFT) && collisions.get(Side.RIGHT))
+            health -= 0.4;
+        
         if(collisions.get(Side.DOWN))
         {
             double scale = Math.pow(0.0005, input.getDeltaTime());
@@ -137,6 +143,14 @@ public class Player extends Actor
     public void postUpdate()
     {
         getWorld().setView(position, 8);
+        
+        System.out.print("\r                                    \r");
+        for(Side side : collisions.keySet())
+            if(collisions.get(side))
+                System.out.print(side + " ");
+    
+//        if(collisions.get(Side.UP))
+//            System.out.println("AAAAA");
     }
     
     @Override
@@ -152,10 +166,10 @@ public class Player extends Actor
                     collisions.put(Side.LEFT, true);
                 else if(other.getBox().getCenter().getX() - other.getBox().getWidth() / 2 > position.getX())
                     collisions.put(Side.RIGHT, true);
-                else if(other.getBox().getCenter().getY() + other.getBox().getHeight() / 2 < position.getY())
-                    collisions.put(Side.DOWN, true);
                 else if(other.getBox().getCenter().getY() - other.getBox().getHeight() / 2 > position.getY())
                     collisions.put(Side.UP, true);
+                else if(other.getBox().getCenter().getY() + other.getBox().getHeight() / 2 < position.getY())
+                    collisions.put(Side.DOWN, true);
                 
                 position = position.add(delta);
                 if(delta.getX() != 0.0)
