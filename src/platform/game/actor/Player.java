@@ -162,14 +162,22 @@ public class Player extends Actor
             Vector delta = other.getBox().getCollision(getBox());
             if(delta != null)
             {
-                if(other.getBox().getCenter().getX() + other.getBox().getWidth() / 2 < position.getX())
+                if(other.getBox().getMax().getX() < position.getX())
                     collisions.put(Side.LEFT, true);
-                else if(other.getBox().getCenter().getX() - other.getBox().getWidth() / 2 > position.getX())
+                else if(other.getBox().getMin().getX() > position.getX())
                     collisions.put(Side.RIGHT, true);
-                else if(other.getBox().getCenter().getY() - other.getBox().getHeight() / 2 > position.getY())
-                    collisions.put(Side.UP, true);
-                else if(other.getBox().getCenter().getY() + other.getBox().getHeight() / 2 < position.getY())
+                if(other.getBox().getMax().getY() < position.getY())
+                {
                     collisions.put(Side.DOWN, true);
+                    collisions.put(Side.LEFT, false);
+                    collisions.put(Side.RIGHT, false);
+                }
+                else if(other.getBox().getMin().getY() > position.getY())
+                {
+                    collisions.put(Side.UP, true);
+                    collisions.put(Side.LEFT, false);
+                    collisions.put(Side.RIGHT, false);
+                }
                 
                 position = position.add(delta);
                 if(delta.getX() != 0.0)
