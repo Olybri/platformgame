@@ -5,6 +5,7 @@ import platform.game.Damage;
 import platform.util.*;
 
 import java.awt.event.KeyEvent;
+import java.util.HashMap;
 
 public class Player extends Actor
 {
@@ -15,7 +16,15 @@ public class Player extends Actor
     private double healthMax = 1;
     private double health = healthMax;
     
-    private boolean colliding = false;
+    private HashMap<Side, Boolean> collisions = new HashMap<>();
+    
+    private enum Side
+    {
+        LEFT,
+        RIGHT,
+        UP,
+        DOWN
+    }
     
     public Player(Vector position)
     {
@@ -61,7 +70,7 @@ public class Player extends Actor
             return;
         }
         
-        if(colliding)
+        if(collisions.get(Side.DOWN))
         {
             double scale = Math.pow(0.0005, input.getDeltaTime());
             velocity = velocity.mul(scale);
@@ -91,7 +100,7 @@ public class Player extends Actor
             }
         }
         
-        if(colliding && Command.isButtonPressed("jump"))
+        if(collisions.get(Side.DOWN) && Command.isButtonPressed("jump"))
             velocity = new Vector(velocity.getX(), 7.0);
         
         if(Command.isButtonPressed("attack"))
@@ -118,7 +127,10 @@ public class Player extends Actor
     @Override
     public void preUpdate()
     {
-        colliding = false;
+        collisions.put(Side.LEFT, false);
+        collisions.put(Side.RIGHT, false);
+        collisions.put(Side.UP, false);
+        collisions.put(Side.DOWN, false);
     }
     
     @Override
@@ -136,7 +148,15 @@ public class Player extends Actor
             Vector delta = other.getBox().getCollision(getBox());
             if(delta != null)
             {
-                colliding = true;
+                if(other.getBox().getCenter().getX() + other.getBox().getWidth() / 2 < position.getX())
+                    collisions.put(Side.LEFT, true);
+                else if(other.getBox().getCenter().getX() - other.getBox().getWidth() / 2 > position.getX())
+                    collisions.put(Side.RIGHT, true);
+                else if(other.getBox().getCenter().getY() + other.getBox().getHeight() / 2 < position.getY())
+                    collisions.put(Side.DOWN, true);
+                else if(other.getBox().getCenter().getY() - other.getBox().getHeight() / 2 > position.getY())
+                    collisions.put(Side.UP, true);
+                
                 position = position.add(delta);
                 if(delta.getX() != 0.0)
                     velocity = new Vector(0.0, velocity.getY());
