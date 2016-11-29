@@ -1,5 +1,6 @@
 package platform.game.actor;// Created by Loris Witschard on 11/29/2016.
 
+import platform.game.Damage;
 import platform.util.Box;
 import platform.util.Input;
 import platform.util.Vector;
@@ -19,6 +20,10 @@ public class AntiPlayer extends Actor
     private Vector nextPosition;
     private double nextTime = 0;
     private double time = 0;
+    private boolean alive = false;
+    
+    private double cooldown = 0;
+    private final double cooldownMax = 0.3;
     
     private final double SIZE = 0.75;
     
@@ -29,8 +34,10 @@ public class AntiPlayer extends Actor
         
         nextPosition = player.getPosition();
         currentPosition = nextPosition;
+    
+        sprite = null;
         
-        priority = 900;
+        priority = 800;
     }
     
     @Override
@@ -39,7 +46,14 @@ public class AntiPlayer extends Actor
         super.update(input);
     
         time += input.getDeltaTime();
-        sprite = time < delta ? null : getSprite("box.item");
+        cooldown -= input.getDeltaTime();
+    
+        if(time > delta && !alive)
+        {
+            alive = true;
+            sprite = getSprite("blocker.sad");
+            getWorld().register(new Smoke(currentPosition));
+        }
         
         positions.put(time + delta, player.getPosition());
     
@@ -64,5 +78,15 @@ public class AntiPlayer extends Actor
     public Box getBox()
     {
         return new Box(currentPosition, SIZE, SIZE);
+    }
+    
+    @Override
+    public void interact(Actor other)
+    {
+        super.interact(other);
+    
+        if(time > delta && cooldown <= 0 && getBox().isColliding(other.getBox()))
+            if(other.hurt(this, Damage.PHYSICAL, 0.5, currentPosition))
+                cooldown = cooldownMax;
     }
 }

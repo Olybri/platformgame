@@ -196,11 +196,15 @@ public class Player extends Actor
             case AIR:
                 velocity = new Vector(position.getX(), position.sub(location).resized(amount).getY());
                 return true;
-            
-            case PHYSICAL:
+                
+            case SPIKE:
                 if(velocity.getY() > 0 || position.getY() < location.getY())
                     return false;
+                // fallthrough
+            case PHYSICAL:
                 velocity = velocity.normalized().mul(-5);
+                position = position.add(new Vector(0, 0.1));
+                // fallthrough
             case VOID:
                 health -= amount;
                 return true;

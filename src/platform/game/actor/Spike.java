@@ -35,7 +35,7 @@ public class Spike extends Actor
         super.interact(other);
     
         if(cooldown <= 0 && getBox().isColliding(other.getBox()))
-            if(other.hurt(this, Damage.PHYSICAL, 0.4, position.add(new Vector(0, SIZE/2))))
+            if(other.hurt(this, Damage.SPIKE, 0.4, position.add(new Vector(0, SIZE/2))))
                 cooldown = cooldownMax;
             else
                 other.interact(this);

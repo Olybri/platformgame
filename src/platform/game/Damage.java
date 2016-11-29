@@ -4,6 +4,7 @@ public enum Damage
 {
     FIRE,
     PHYSICAL,
+    SPIKE,
     AIR,
     VOID,
     ACTIVATION,
