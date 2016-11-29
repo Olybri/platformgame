@@ -79,7 +79,7 @@ public class Player extends Actor
         if(collisions.get(Side.DOWN))
         {
             double scale = Math.pow(0.0005, input.getDeltaTime());
-            velocity = velocity.mul(scale);
+            velocity = new Vector(velocity.getX() * scale, velocity.getY());
         }
         
         double maxSpeed = 4.0;
@@ -148,9 +148,6 @@ public class Player extends Actor
         for(Side side : collisions.keySet())
             if(collisions.get(side))
                 System.out.print(side + " ");
-    
-//        if(collisions.get(Side.UP))
-//            System.out.println("AAAAA");
     }
     
     @Override

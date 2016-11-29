@@ -58,8 +58,6 @@ public class AntiPlayer extends Actor
             }
             it.remove();
         }
-    
-        System.out.println(positions.size());
     }
     
     @Override
