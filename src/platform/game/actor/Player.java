@@ -62,9 +62,7 @@ public class Player extends Actor
     
     private boolean addHealth(double value)
     {
-        if(health + value <= 0)
-            cooldown = deathCooldownMax;
-        else if(value < 0)
+        if(value < 0)
             cooldown = hurtCooldownMax;
         else if(health >= healthMax)
             return false;
@@ -86,9 +84,10 @@ public class Player extends Actor
         
         cooldown -= input.getDeltaTime();
         
-        if(health <= 0 && !dead)
+        if(health <= 0.1 && !dead)
         {
             dead = true;
+            cooldown = deathCooldownMax;
             Command.enable(false);
             getWorld().register(new Fadeout(deathCooldownMax, 1));
         }
@@ -266,7 +265,7 @@ public class Player extends Actor
     {
         double size = SIZE;
         if(cooldown > 0)
-            if(health > 0)
+            if(!dead)
             {
                 size += +SIZE * Math.cos((hurtCooldownMax - cooldown) * 10) * cooldown / 3 / hurtCooldownMax;
                 sprite = getSprite("blocker.sad");
