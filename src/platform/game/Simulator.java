@@ -122,6 +122,14 @@ public class Simulator implements World
     }
     
     @Override
+    public void resetView(Vector center, double radius)
+    {
+        setView(center, radius);
+        currentCenter = expectedCenter;
+        currentRadius = expectedRadius;
+    }
+    
+    @Override
     public Vector getViewCenter()
     {
         return currentCenter;

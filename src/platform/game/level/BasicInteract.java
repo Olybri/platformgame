@@ -30,8 +30,8 @@ public class BasicInteract extends Level
         world.register(new Hill(new Box(new Vector(13, 2), 4, 2), "castle.hill.right", true));
 //        world.register(new Jumper(new Vector(0, 1.5)));
         world.register(new Heart(new Vector(-2, 3.5)));
-//        world.register(new Spike(new Vector(4, 3.25)));
-        Torch torch = new Torch(new Vector(2.5, 2.5), false);
+        world.register(new Spike(new Vector(4, 3.25)));
+        Torch torch = new Torch(new Vector(2.5, 3.5), false);
         world.register(torch);
     
         Key key = new Key(new Vector(10, 3.5), ItemColor.RED);
@@ -40,7 +40,7 @@ public class BasicInteract extends Level
         world.register(lever);
         world.register(new Door(new Vector(-4.5, 1.5), ItemColor.RED, key));
         world.register(new Door(new Vector(-4.5, 2.5), ItemColor.GREEN, lever));
-        world.register(new Mover(new Vector(0, 1.75), new Vector(0, 4), 2, 1.5, 2, "box.double", torch));
+        world.register(new Mover(new Vector(0, 4), new Vector(0, 10), 2, 1.5, 0.3, "box.double", torch));
         
         world.register(new Exit(new Vector(-6, 5.5), new BasicLevel(), new Constant(true)));
         
@@ -57,9 +57,7 @@ public class BasicInteract extends Level
         Player player = new Player(new Vector(1.5, 2));
         world.register(player);
         world.register(new Overlay(player));
-        world.register(new AntiPlayer(player, 2));
-        world.register(new AntiPlayer(player, 2.5));
         world.register(new AntiPlayer(player, 3));
-        world.register(new AntiPlayer(player, 3.5));
+        world.resetView(player.getPosition(), 10);
     }
 }

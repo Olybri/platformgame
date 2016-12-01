@@ -84,7 +84,7 @@ public class Player extends Actor
         
         cooldown -= input.getDeltaTime();
         
-        if(health <= 0.1 && !dead)
+        if(health <= 0.05 && !dead)
         {
             dead = true;
             cooldown = deathCooldownMax;
