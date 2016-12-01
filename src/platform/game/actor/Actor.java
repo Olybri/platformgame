@@ -1,5 +1,7 @@
-package platform.game;
+package platform.game.actor;
 
+import platform.game.Damage;
+import platform.game.World;
 import platform.util.*;
 
 /**
@@ -8,6 +10,7 @@ import platform.util.*;
 public abstract class Actor implements Comparable<Actor>
 {
     protected int priority = -1;
+    protected Sprite sprite = null;
     
     private World world = null;
     
@@ -38,11 +41,6 @@ public abstract class Actor implements Comparable<Actor>
     public int getPriority()
     {
         return priority;
-    }
-    
-    public Sprite getSprite(String name)
-    {
-        return world.getLoader().getSprite(name);
     }
     
     public void interact(Actor other)
@@ -79,7 +77,22 @@ public abstract class Actor implements Comparable<Actor>
     {
     }
     
+    public boolean hurt(Actor instigator, Damage type, double amount, Vector location)
+    {
+        return false;
+    }
+    
+    public Sprite getSprite(String name)
+    {
+        if(world == null)
+            return null;
+        
+        return world.getLoader().getSprite(name);
+    }
+    
     public void draw(Input input, Output output)
     {
+        if(sprite != null)
+            output.drawSprite(sprite, getBox());
     }
 }
