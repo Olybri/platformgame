@@ -21,6 +21,7 @@ public class Player extends Actor
     private double cooldown = 0;
     private final double hurtCooldownMax = 1;
     private final double deathCooldownMax = 2;
+    private final double hurtDelay = 0.3;
     
     private enum Side
     {
@@ -63,7 +64,11 @@ public class Player extends Actor
     private boolean addHealth(double value)
     {
         if(value < 0)
+        {
+            if(cooldown > hurtCooldownMax - hurtDelay)
+                return false;
             cooldown = hurtCooldownMax;
+        }
         else if(health >= healthMax)
             return false;
         
@@ -98,12 +103,6 @@ public class Player extends Actor
             Command.enable(true);
             return;
         }
-        
-        if(collisions.get(Side.DOWN) && collisions.get(Side.UP))
-            addHealth(-0.4);
-        
-        if(collisions.get(Side.LEFT) && collisions.get(Side.RIGHT))
-            addHealth(-0.4);
         
         if(collisions.get(Side.DOWN))
         {
@@ -193,6 +192,13 @@ public class Player extends Actor
             Vector delta = other.getBox().getCollision(getBox());
             if(delta != null)
             {
+                if(!dead
+                    && other.getBox().getMin().getX() < getBox().getMin().getX()
+                    && other.getBox().getMin().getY() < getBox().getMin().getY()
+                    && other.getBox().getMax().getX() > getBox().getMax().getX()
+                    && other.getBox().getMax().getY() > getBox().getMax().getY())
+                        addHealth(-0.5);
+                    
                 if(other.getBox().getMax().getX() < position.getX())
                     collisions.put(Side.LEFT, true);
                 else if(other.getBox().getMin().getX() > position.getX())
