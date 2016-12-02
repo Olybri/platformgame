@@ -39,7 +39,7 @@ public class BasicInteract extends Level
         world.register(lever);
         world.register(new Door(new Vector(-4.5, 1.5), ItemColor.RED, key));
         world.register(new Door(new Vector(-4.5, 2.5), ItemColor.GREEN, lever));
-        world.register(new Mover(new Vector(0, 4), new Vector(0, 10), 2, 1.5, 0.3, "box.double", torch));
+        world.register(new Mover(new Box(new Vector(0, 4), 2, 1.5), "box.double", new Vector(0, 10), 0.3, torch));
         
         world.register(new Exit(new Vector(-6, 5.5), new BasicLevel(), new Constant(true)));
         
