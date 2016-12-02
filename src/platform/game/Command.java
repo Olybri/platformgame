@@ -25,12 +25,12 @@ public class Command
         try(InputStream in = new FileInputStream(filename);
             BufferedReader reader = new BufferedReader(new InputStreamReader(in)))
         {
-            String line = null;
+            String line;
             while((line = reader.readLine()) != null)
             {
                 int value;
-                String control = line.split(": ")[1];
-                switch(control)
+                String[] control = line.split("[\\s]*:[\\s]*");
+                switch(control[1].toLowerCase())
                 {
                     case "leftarrow":
                         value = KeyEvent.VK_LEFT;
@@ -54,10 +54,10 @@ public class Command
                         value = KeyEvent.VK_BACK_SPACE;
                         break;
                     default:
-                        value = Character.toUpperCase(control.charAt(0));
+                        value = control[1].toUpperCase().charAt(0);
                 }
                 
-                commands.put(line.split(":")[0], value);
+                commands.put(control[0], value);
             }
         }
         catch(Exception e)
