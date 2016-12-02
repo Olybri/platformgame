@@ -24,7 +24,7 @@ public class Jumper extends Actor
     @Override
     public Box getBox()
     {
-        return new Box(position, SIZE, SIZE);
+        return new Box(position.sub(new Vector(0, SIZE * 0.25)), SIZE, SIZE * 0.75);
     }
     
     @Override
@@ -33,10 +33,7 @@ public class Jumper extends Actor
         super.update(input);
         cooldown -= input.getDeltaTime();
         
-        if(cooldown > 0)
-            sprite = getSprite("jumper.normal");
-        else
-            sprite = getSprite("jumper.extended");
+        sprite = getSprite("jumper.extended");
     }
     
     @Override
@@ -44,7 +41,7 @@ public class Jumper extends Actor
     {
         super.interact(other);
         if(cooldown <= 0 && getBox().isColliding(other.getBox())
-            && other.getPosition().getY() > position.getY() + SIZE/2)
+            && other.getPosition().getY() > position.getY())
         {
             Vector below = new Vector(position.getX(), position.getY() - 1);
             if(other.hurt(this, Damage.AIR, 10.0, below))
@@ -59,5 +56,17 @@ public class Jumper extends Actor
     public boolean isSolid()
     {
         return true;
+    }
+    
+    @Override
+    public void draw(Input input, Output output)
+    {
+        if(cooldown <= 0)
+            output.drawSprite(sprite, new Box(position, SIZE, SIZE));
+        else
+        {
+            double offset = SIZE * Math.sin((cooldownMax - cooldown) * 30) * cooldown * 1.5;
+            output.drawSprite(sprite, new Box(position.add(new Vector(0, offset / 2)), SIZE, SIZE + offset));
+        }
     }
 }
