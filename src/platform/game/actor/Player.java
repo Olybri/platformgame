@@ -2,6 +2,7 @@ package platform.game.actor;// Created by Loris Witschard on 22.11.16.
 
 import platform.game.Command;
 import platform.game.Damage;
+import platform.game.World;
 import platform.util.*;
 
 import java.util.HashMap;
@@ -74,6 +75,14 @@ public class Player extends Actor
         
         health = Math.min(healthMax, health + value);
         return true;
+    }
+    
+    @Override
+    public void register(World world)
+    {
+        super.register(world);
+        
+        world.register(new Overlay(this));
     }
     
     @Override
