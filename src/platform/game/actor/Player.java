@@ -19,7 +19,7 @@ public class Player extends Actor
     private HashMap<Side, Boolean> collisions = new HashMap<>();
     
     private double cooldown = 0;
-    private final double hurtCooldownMax = 1;
+    private final double hurtCooldownMax = 0.75;
     private final double deathCooldownMax = 2;
     private final double hurtDelay = 0.3;
     
@@ -93,16 +93,19 @@ public class Player extends Actor
         {
             dead = true;
             cooldown = deathCooldownMax;
-            Command.enable(false);
             getWorld().register(new Fadeout(deathCooldownMax, 1));
         }
         
         if(dead && cooldown <= 0)
         {
             getWorld().nextLevel();
-            Command.enable(true);
             return;
         }
+        
+        if(cooldown > 0)
+            Command.enable(false);
+        else
+            Command.enable(true);
         
         if(collisions.get(Side.DOWN))
         {

@@ -1,4 +1,4 @@
-package platform.game;// Created by Loris Witschard on 11/28/2016.
+package platform.game.signal;// Created by Loris Witschard on 11/28/2016.
 
 public class Constant implements Signal
 {

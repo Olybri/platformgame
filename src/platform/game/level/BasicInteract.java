@@ -1,7 +1,6 @@
 package platform.game.level;// Created by Loris Witschard on 25.11.16.
 
-import platform.game.And;
-import platform.game.Constant;
+import platform.game.signal.Constant;
 import platform.game.ItemColor;
 import platform.game.World;
 import platform.game.actor.*;

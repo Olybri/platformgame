@@ -1,7 +1,7 @@
 package platform.game.actor;// Created by Loris Witschard on 11/28/2016.
 
 import platform.game.Damage;
-import platform.game.Signal;
+import platform.game.signal.Signal;
 import platform.game.level.Level;
 import platform.util.Box;
 import platform.util.Input;

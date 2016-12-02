@@ -1,6 +1,6 @@
 package platform.game.actor;// Created by Loris Witschard on 25.11.16.
 
-import platform.game.Signal;
+import platform.game.signal.Signal;
 import platform.util.Box;
 import platform.util.Input;
 import platform.util.Vector;
