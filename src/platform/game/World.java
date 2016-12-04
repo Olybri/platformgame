@@ -35,6 +35,8 @@ public interface World
      */
     void setView(Vector center, double radius);
     
+    void resetView(Vector center, double radius);
+    
     Vector getViewCenter();
     
     void register(Actor actor);

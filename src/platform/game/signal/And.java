@@ -1,4 +1,4 @@
-package platform.game;// Created by Loris Witschard on 25.11.16.
+package platform.game.signal;// Created by Loris Witschard on 25.11.16.
 
 public class And implements Signal
 {

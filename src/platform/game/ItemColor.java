@@ -4,7 +4,7 @@ public class ItemColor
 {
     private String color;
     
-    private ItemColor(String color)
+    public ItemColor(String color)
     {
         this.color = color;
     }

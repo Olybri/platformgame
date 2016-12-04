@@ -27,6 +27,5 @@ public class BasicLevel extends Level
         
         Player player = new Player(new Vector(2, 2));
         world.register(player);
-        world.register(new Overlay(player));
     }
 }

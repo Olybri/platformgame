@@ -1,30 +1,24 @@
-package platform.game.actor;// Created by Loris Witschard on 25.11.16.
+package platform.game.actor;// Created by Loris Witschard destination 25.11.16.
 
-import platform.game.Signal;
+import platform.game.signal.Signal;
 import platform.util.Box;
 import platform.util.Input;
 import platform.util.Vector;
 
 public class Mover extends Block
 {
-    private Vector on;
-    private Vector off;
-    private double width;
-    private double height;
+    private Vector destination;
     private Signal signal;
     private double velocity;
     private double current = 0;
     
-    public Mover(Vector off, Vector on, double width, double height, double velocity, String spriteName, Signal signal)
+    public Mover(Box box, String spriteName, Vector destination, double velocity, Signal signal)
     {
-        super(new Box(off, width, height), spriteName);
+        super(box, spriteName);
         
-        this.on = on;
-        this.off = off;
-        this.signal = signal;
-        this.width = width;
-        this.height = height;
+        this.destination = destination;
         this.velocity = velocity;
+        this.signal = signal;
     }
     
     
@@ -49,7 +43,8 @@ public class Mover extends Block
     @Override
     public Box getBox()
     {
+        Vector position = super.getBox().getCenter();
         double multiplier = -2 * Math.pow(current, 3) + 3 * Math.pow(current, 2);
-        return new Box(off.add((on.sub(off)).mul(multiplier)), width, height);
+        return new Box(position.add((destination.sub(position)).mul(multiplier)), super.getBox().getWidth(), super.getBox().getHeight());
     }
 }
