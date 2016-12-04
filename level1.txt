@@ -1,0 +1,42 @@
+// test level
+
+player = player 1.5:2
+antiplayer player 3
+
+// ground
+    block  0:0:4:2 stone.broken.2
+    block -4:0:4:2 stone.broken.2
+    block -6:4:4:2 stone.broken.2
+    block  4:1:2:4 stone.broken.8
+    block -2:2:2:2 stone.broken.1
+    block  7:0:4:2 stone.broken.2
+
+    platform 10:2:2:2 castle.middle
+
+    hill  8:2:2:2 castle.hill.left false
+    hill 13:2:4:2 castle.hill.right true
+
+
+jumper 0:1.5
+heart -2:3.5
+spike 4:3.25
+
+torch = torch 2.5:3.5 false
+key = key 10:3.5 red
+lever = lever 6:1.5
+door -4.5:1.5 red key
+door -4.5:2.5 green lever
+mover 0:4:2:1.5 box.double 0:10 0.3 torch
+
+trigger1 = and torch key
+trigger2 = and trigger1 lever
+exit -6:5.5 level2.txt trigger2
+limits 0:-25:1000:30
+scenery 0:1 bg.grasslands 0.1 0.5
+scenery    0:0 duck 0.02 -0.5
+scenery -3:0.5 duck 0.02 -0.1
+scenery    4:1 duck 0.02 -0.3
+scenery   -2:2 duck 0.02 -0.7
+scenery   -3:5 duck 0.02 0.2
+scenery   -0:6 duck 0.02 0.3
+scenery -1:5.5 duck 0.02 0.4

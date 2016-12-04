@@ -9,15 +9,15 @@ public class Scenery extends Actor
     private double distanceFactor;
     private double sizeFactor;
     
-    public Scenery(String spriteName, Vector position, double sizeFactor, double distanceFactor)
+    public Scenery(Vector position, String spriteName, double sizeFactor, double distanceFactor)
     {
         if(spriteName == null)
             throw new NullPointerException();
         
-        this.spriteName = spriteName;
         this.position = position;
-        this.distanceFactor = distanceFactor;
+        this.spriteName = spriteName;
         this.sizeFactor = sizeFactor;
+        this.distanceFactor = distanceFactor;
         
         priority = (int)(distanceFactor >= 0 ? (1 - distanceFactor) * 10 : 1000 + (1 - distanceFactor) * 10);
     }

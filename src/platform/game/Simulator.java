@@ -2,6 +2,7 @@ package platform.game;
 
 import platform.game.actor.Actor;
 import platform.game.level.BasicInteract;
+import platform.game.level.DynamicLevel;
 import platform.game.level.Level;
 import platform.util.*;
 
@@ -25,7 +26,7 @@ public class Simulator implements World
     
     private final Vector GRAVITY = new Vector(0, -9.81);
     
-    private Level next = new BasicInteract();
+    private Level next = new DynamicLevel("level1.txt");
     private boolean transition = false;
     
     /**

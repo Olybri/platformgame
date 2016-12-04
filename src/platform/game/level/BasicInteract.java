@@ -44,14 +44,14 @@ public class BasicInteract extends Level
         world.register(new Exit(new Vector(-6, 5.5), new BasicLevel(), new Constant(true)));
         
         world.register(new Limits(new Box(new Vector(0, -25), 1000, 30)));
-        world.register(new Scenery("bg.grasslands", new Vector(0, 1), 0.1, 0.5));
-        world.register(new Scenery("duck", new Vector( 0, 0), 0.02, -0.5));
-        world.register(new Scenery("duck", new Vector( -3, 0.5), 0.02, -0.1));
-        world.register(new Scenery("duck", new Vector( 4, 1), 0.02, -0.3));
-        world.register(new Scenery("duck", new Vector(-2, 2), 0.02, -0.7));
-        world.register(new Scenery("duck", new Vector( 3, 5), 0.02, 0.2));
-        world.register(new Scenery("duck", new Vector( 0, 6), 0.02, 0.3));
-        world.register(new Scenery("duck", new Vector( -1, 5.5), 0.02, 0.4));
+        world.register(new Scenery(new Vector(0, 1), "bg.grasslands", 0.1, 0.5));
+        world.register(new Scenery(new Vector( 0, 0), "duck", 0.02, -0.5));
+        world.register(new Scenery(new Vector( -3, 0.5), "duck", 0.02, -0.1));
+        world.register(new Scenery(new Vector( 4, 1), "duck", 0.02, -0.3));
+        world.register(new Scenery(new Vector(-2, 2), "duck", 0.02, -0.7));
+        world.register(new Scenery(new Vector( 3, 5), "duck", 0.02, 0.2));
+        world.register(new Scenery(new Vector( 0, 6), "duck", 0.02, 0.3));
+        world.register(new Scenery(new Vector( -1, 5.5), "duck", 0.02, 0.4));
         
         Player player = new Player(new Vector(1.5, 2));
         world.register(player);
