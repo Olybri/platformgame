@@ -8,7 +8,7 @@ import platform.util.*;
  */
 public class Slime extends Actor {
     private Vector destination;
-    private Vector start;
+    private Box box;
     private double velocity;
     private boolean alive = true;
     private final double SIZE = 1;
@@ -16,8 +16,8 @@ public class Slime extends Actor {
     private double cooldownMax = 0.3;
     private double current = 0;
 
-    public Slime(Vector start, Vector destination, double velocity) {
-        this.start = start;
+    public Slime(Box box, Vector destination, double velocity) {
+        this.box = box;
         this.destination = destination;
         this.velocity = velocity;
     }
@@ -41,9 +41,9 @@ public class Slime extends Actor {
 
     @Override
     public Box getBox() {
-        Vector position = super.getBox().getCenter();
+        Vector position = box.getCenter();
         double multiplier = -2 * Math.pow(current, 3) + 3 * Math.pow(current, 2);
-        return new Box(position.add((destination.sub(position)).mul(multiplier)), super.getBox().getWidth(), super.getBox().getHeight());
+        return new Box(position.add((destination.sub(position)).mul(multiplier)), SIZE, SIZE);
     }
 
     @Override
@@ -58,6 +58,6 @@ public class Slime extends Actor {
     @Override
     public void draw(Input input, Output output) {
         if (sprite != null)
-            output.drawSprite(sprite, getBox(), velocity, 1.0);
+            output.drawSprite(sprite, getBox(), velocity, 0);
     }
 }
