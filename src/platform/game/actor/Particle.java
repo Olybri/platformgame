@@ -15,7 +15,7 @@ public abstract class Particle extends Actor
     private double[] sizes;
     private int index = 0;
     
-    public Particle(Vector position, double[] sizes, double frameDuration, String[] sprites)
+    public Particle(Vector position, String[] sprites, double[] sizes, double frameDuration)
     {
         if(position == null)
             throw new NullPointerException();
