@@ -1,7 +1,8 @@
 // test level
 
 player = player 1.5:2
-antiplayer player 3
+// antiplayer player 3
+slime 15.5:1.25:1:0.5 18.5:1.25 0.25
 
 // ground
     block  0:0:4:2 stone.broken.2
@@ -10,6 +11,7 @@ antiplayer player 3
     block  4:1:2:4 stone.broken.8
     block -2:2:2:2 stone.broken.1
     block  7:0:4:2 stone.broken.2
+    block  17:0:4:2 stone.broken.2
 
     platform 10:2:2:2 castle.middle
 
@@ -19,7 +21,7 @@ antiplayer player 3
 
 jumper 0:1.5
 heart -2:3.5
-spike 4:3.25
+// spike 4:3.25
 
 torch = torch 2.5:3.5 false
 key = key 10:3.5 red

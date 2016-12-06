@@ -14,6 +14,7 @@ public class Slime extends Actor {
     private double cooldown;
     private double cooldownMax = 0.3;
     private double current = 0;
+    private boolean forward = true;
 
     public Slime(Box box, Vector destination, double velocity) {
         if (box == null || destination == null)
@@ -31,7 +32,19 @@ public class Slime extends Actor {
         if (alive) {
             sprite = getSprite("slime.left.1");
 
-
+            if (forward) {
+                current += input.getDeltaTime() * velocity;
+                if (current > 1.0) {
+                    current = 1.0;
+                    forward = false;
+                }
+            } else {
+                current -= input.getDeltaTime() * velocity;
+                if (current < 0.0) {
+                    current = 0.0;
+                    forward = true;
+                }
+            }
         } else if (cooldown <= 0){
             getWorld().unregister(this);
         }
@@ -75,7 +88,7 @@ public class Slime extends Actor {
             }
         }
 
-        Box newBox = new Box(box.getCenter(), box.getWidth(), box.getHeight() + (box.getHeight() * factor));
+        Box newBox = new Box(getBox().getCenter(), box.getWidth(), box.getHeight() + (box.getHeight() * factor));
         output.drawSprite(sprite, newBox);
     }
 }
