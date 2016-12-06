@@ -114,6 +114,10 @@ public class DynamicLevel extends Level
                             object = new Player(parseVector(args[1]));
                             world.resetView(Actor.class.cast(object).getPosition(), 10);
                             break;
+                        case "slime":
+                            checkArgs(args, 3);
+                            object = new Slime(parseBox(args[1]), parseVector(args[2]), Double.parseDouble(args[3]));
+                            break;
                         case "block":
                             checkArgs(args, 2);
                             object = new Block(parseBox(args[1]), args[2]);

@@ -9,6 +9,6 @@ public class Smoke extends Particle
     
     public Smoke(Vector position)
     {
-        super(position, sizes, 0.1, sprites);
+        super(position, sprites, sizes, 0.1);
     }
 }
