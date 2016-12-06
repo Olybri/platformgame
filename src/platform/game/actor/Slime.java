@@ -11,15 +11,17 @@ public class Slime extends Actor {
     private Box box;
     private double velocity;
     private boolean alive = true;
-    private final double SIZE = 1;
     private double cooldown;
     private double cooldownMax = 0.3;
     private double current = 0;
 
     public Slime(Box box, Vector destination, double velocity) {
+        if (box == null || destination == null)
+            throw new NullPointerException();
         this.box = box;
         this.destination = destination;
         this.velocity = velocity;
+        priority = 50;
     }
 
     @Override
@@ -29,21 +31,19 @@ public class Slime extends Actor {
         if (alive) {
             sprite = getSprite("slime.left.1");
 
-            if (current == 0)
-                current += input.getDeltaTime() * velocity;
-            if (current == 1.0)
-                current -= input.getDeltaTime() * velocity;
+
+        } else if (cooldown <= 0){
+            getWorld().unregister(this);
         }
 
         cooldown -= input.getDeltaTime();
-
     }
 
     @Override
     public Box getBox() {
         Vector position = box.getCenter();
         double multiplier = -2 * Math.pow(current, 3) + 3 * Math.pow(current, 2);
-        return new Box(position.add((destination.sub(position)).mul(multiplier)), SIZE, SIZE);
+        return new Box(position.add((destination.sub(position)).mul(multiplier)), box.getWidth(), box.getHeight());
     }
 
     @Override
@@ -56,8 +56,26 @@ public class Slime extends Actor {
     }
 
     @Override
-    public void draw(Input input, Output output) {
-        if (sprite != null)
-            output.drawSprite(sprite, getBox(), velocity, 0);
+    public boolean hurt(Actor instigator, Damage type, double amount, Vector location) {
+       if (type == Damage.FIRE) {
+           alive = false;
+           cooldown = cooldownMax;
+           return true;
+       }
+       return false;
+    }
+
+    @Override
+    public void draw (Input input, Output output) {
+        double factor = 0;
+        if (cooldown > 0) {
+            if (!alive) {
+                factor = Math.cos((cooldownMax - cooldown) * 10) * cooldown / 3 / cooldownMax;
+                sprite = getSprite("slime.left.1");
+            }
+        }
+
+        Box newBox = new Box(box.getCenter(), box.getWidth(), box.getHeight() + (box.getHeight() * factor));
+        output.drawSprite(sprite, newBox);
     }
 }
