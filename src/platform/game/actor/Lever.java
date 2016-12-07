@@ -6,6 +6,9 @@ import platform.util.Box;
 import platform.util.Input;
 import platform.util.Vector;
 
+/**
+ * Non-solid item that activates or deactivates a signal once toggled.
+ */
 public class Lever extends Actor implements Signal
 {
     private boolean active = false;
@@ -14,6 +17,9 @@ public class Lever extends Actor implements Signal
     private double countdown = 0;
     private double countdownMax = 5;
     
+    /**
+     * @param position position of the item
+     */
     public Lever(Vector position)
     {
         if(position == null)

@@ -7,6 +7,9 @@ import platform.game.actor.*;
 import platform.util.Box;
 import platform.util.Vector;
 
+/**
+ * Level to test interactions between actors
+ */
 public class BasicInteract extends Level
 {
     @Override

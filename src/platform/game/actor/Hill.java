@@ -5,12 +5,20 @@ import platform.util.Input;
 import platform.util.Output;
 import platform.util.Vector;
 
+/**
+ * Solid block with a slope.
+ */
 public class Hill extends Block
 {
     private boolean right = false;
     private Box fullBox;
     private double height = 0;
     
+    /**
+     * @param box bounding box of the hill
+     * @param spriteName name of the sprite to draw
+     * @param right true for right hill, false for left hill
+     */
     public Hill(Box box, String spriteName, boolean right)
     {
         super(box, spriteName);
@@ -29,7 +37,8 @@ public class Hill extends Block
     @Override
     public Box getBox()
     {
-        return new Box(fullBox.getMin().add(new Vector(fullBox.getWidth() / 2, height / 2)), fullBox.getWidth(), height);
+        return new Box(fullBox.getMin().add(new Vector(fullBox.getWidth() / 2, height / 2)),
+            fullBox.getWidth(), height);
     }
     
     @Override

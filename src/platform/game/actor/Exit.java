@@ -7,6 +7,10 @@ import platform.util.Box;
 import platform.util.Input;
 import platform.util.Vector;
 
+/**
+ * Exit door that opens whenever the given signal is active. It turns back to closed whenever the given signal is
+ * inactive again.
+ */
 public class Exit extends Actor
 {
     private Vector position;
@@ -16,6 +20,11 @@ public class Exit extends Actor
     private boolean open = false;
     private final double SIZE = 1;
     
+    /**
+     * @param position position of the exit
+     * @param next instance of the next level to be loaded
+     * @param signal signal that opens or closes the exit
+     */
     public Exit(Vector position, Level next, Signal signal)
     {
         if(position == null || next == null || signal == null)

@@ -5,6 +5,9 @@ import platform.game.actor.*;
 import platform.util.Box;
 import platform.util.Vector;
 
+/**
+ * Level to test basic actors
+ */
 public class BasicLevel extends Level
 {
     @Override

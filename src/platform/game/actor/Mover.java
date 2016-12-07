@@ -5,6 +5,10 @@ import platform.util.Box;
 import platform.util.Input;
 import platform.util.Vector;
 
+/**
+ * Solid block that moves to a specific destination whenever the given signal is active, and moves back to its initial
+ * position whenever the given signal is inactive again.
+ */
 public class Mover extends Block
 {
     private Vector destination;
@@ -12,6 +16,13 @@ public class Mover extends Block
     private double velocity;
     private double current = 0;
     
+    /**
+     * @param box bounding box of the mover
+     * @param spriteName name of the sprite to draw
+     * @param destination destination to reach when the given signal is active
+     * @param velocity speed of the mover while travelling
+     * @param signal signal that makes the mover travel
+     */
     public Mover(Box box, String spriteName, Vector destination, double velocity, Signal signal)
     {
         super(box, spriteName);
@@ -20,7 +31,6 @@ public class Mover extends Block
         this.velocity = velocity;
         this.signal = signal;
     }
-    
     
     @Override
     public void update(Input input)

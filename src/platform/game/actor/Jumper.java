@@ -3,6 +3,9 @@ package platform.game.actor;// Created by Loris Witschard on 23.11.16.
 import platform.game.Damage;
 import platform.util.*;
 
+/**
+ * Solid item that make actors jump high.
+ */
 public class Jumper extends Actor
 {
     private Vector position;
@@ -11,6 +14,9 @@ public class Jumper extends Actor
     private double cooldown = 0;
     private final double cooldownMax =  0.5;
     
+    /**
+     * @param position position of the item
+     */
     public Jumper(Vector position)
     {
         if(position == null)

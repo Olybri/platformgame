@@ -2,8 +2,15 @@ package platform.game.actor;// Created by Loris Witschard on 11/29/2016.
 
 import platform.util.Box;
 
+/**
+ * Block that is solid for actor falling from above.
+ */
 public class Platform extends Block
 {
+    /**
+     * @param box bounding box of the platform
+     * @param spriteName name of the sprite to draw
+     */
     public Platform(Box box, String spriteName)
     {
         super(box, spriteName);

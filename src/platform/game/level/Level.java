@@ -18,6 +18,14 @@ public abstract class Level extends Actor
         fadein = 1.0;
     }
     
+    /**
+     * @return a new instance of default level
+     */
+    public static Level createDefaultLevel()
+    {
+        return new BasicLevel();
+    }
+    
     @Override
     public int getPriority()
     {
@@ -39,13 +47,5 @@ public abstract class Level extends Actor
         if(getWorld() == null)
             throw new NullPointerException();
         output.drawSprite(sprite, output.getBox(), 0.0, fadein);
-    }
-    
-    /**
-     * @return a new instance of default level
-     */
-    public static Level createDefaultLevel()
-    {
-        return new BasicLevel();
     }
 }

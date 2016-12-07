@@ -10,10 +10,14 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * Enemy that spawns behind the player with some delay. He follows the exact same route as the player. He is immortal
+ * and inflict damages to the player's health whenever he touches him.
+ */
 public class AntiPlayer extends Actor
 {
     private Player player;
-    private final double delta;
+    private final double delay;
     
     private LinkedHashMap<Double, Vector> positions = new LinkedHashMap<>();
     
@@ -30,10 +34,14 @@ public class AntiPlayer extends Actor
     
     private final double SIZE = 0.75;
     
-    public AntiPlayer(Player player, double delta)
+    /**
+     * @param player player to follow
+     * @param delay delay between the player and the antiplayer actions
+     */
+    public AntiPlayer(Player player, double delay)
     {
         this.player = player;
-        this.delta = delta;
+        this.delay = delay;
         
         nextPosition = player.getPosition();
         currentPosition = nextPosition;
@@ -48,10 +56,10 @@ public class AntiPlayer extends Actor
     {
         super.update(input);
         
-        if(delta > 1 && time > delta - 1 && !player.hasMoved())
+        if(delay > 1 && time > delay - 1 && !player.hasMoved())
             return;
         
-        if(time > delta && !alive)
+        if(time > delay && !alive)
         {
             alive = true;
             sprite = getSprite("blocker.sad");
@@ -61,7 +69,7 @@ public class AntiPlayer extends Actor
         time += input.getDeltaTime();
         cooldown -= input.getDeltaTime();
         
-        positions.put(time + delta, player.getPosition());
+        positions.put(time + delay, player.getPosition());
         
         if(time >= nextTime)
         {

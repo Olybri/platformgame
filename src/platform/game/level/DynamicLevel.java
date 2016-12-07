@@ -14,17 +14,30 @@ import platform.game.signal.Signal;
 import platform.util.Box;
 import platform.util.Vector;
 
+/**
+ * Level that loads its content dynamically from a file.
+ * See README.md for file syntax.
+ */
 public class DynamicLevel extends Level
 {
     private String filename;
     private HashMap<String, Object> variables = new HashMap<>();
     
+    /**
+     * @param filename name of the level file
+     */
     public DynamicLevel(String filename)
     {
         this.filename = filename;
     }
     
-    private Vector parseVector(String string)
+    /**
+     * Cast a string into a vector
+     *
+     * @param string string to parse
+     * @return vector interpreted from the string
+     */
+    private Vector parseVector(String string) throws NumberFormatException
     {
         String[] pieces = string.split(":");
         if(pieces.length != 2)
@@ -33,7 +46,13 @@ public class DynamicLevel extends Level
         return new Vector(Double.parseDouble(pieces[0]), Double.parseDouble(pieces[1]));
     }
     
-    private Box parseBox(String string)
+    /**
+     * Cast a string into a box
+     *
+     * @param string string to parse
+     * @return box interpreted from the string
+     */
+    private Box parseBox(String string) throws NumberFormatException
     {
         String[] pieces = string.split(":");
         if(pieces.length != 4)
@@ -43,8 +62,14 @@ public class DynamicLevel extends Level
             Double.parseDouble(pieces[2]), Double.parseDouble(pieces[3]));
     }
     
-    
-    private <T> T getVariable(String symbol, Class<T> type)
+    /**
+     * Get reference on a stored object
+     *
+     * @param symbol name of the object
+     * @param type type of the object
+     * @return object associated to the name, if it exists
+     */
+    private <T> T getVariable(String symbol, Class<T> type) throws IllegalArgumentException
     {
         if(type == Signal.class && (symbol.equals("true") || symbol.equals("false")))
             return type.cast(new Constant(Boolean.parseBoolean(symbol)));
@@ -58,7 +83,13 @@ public class DynamicLevel extends Level
         return type.cast(variables.get(symbol));
     }
     
-    private void addVariable(String symbol, Object value)
+    /**
+     * Store a reference on a object
+     *
+     * @param symbol name of the object
+     * @param value instance of the object
+     */
+    private void addVariable(String symbol, Object value) throws IllegalArgumentException
     {
         if(variables.containsKey(symbol))
             throw new IllegalArgumentException("Variable '" + symbol + "' is already defined.");
@@ -66,7 +97,13 @@ public class DynamicLevel extends Level
         variables.put(symbol, value);
     }
     
-    private void checkArgs(String[] args, int count) throws Exception
+    /**
+     * Check if an array has enough arguments
+     *
+     * @param args arguments array
+     * @param count number of arguments expected
+     */
+    private void checkArgs(String[] args, int count) throws IllegalArgumentException
     {
         if(args.length < count + 1)
             throw new IllegalArgumentException("Too few arguments to construct actor '" + args[0] + "'.");
@@ -128,7 +165,8 @@ public class DynamicLevel extends Level
                             break;
                         case "door":
                             checkArgs(args, 3);
-                            object = new Door(parseVector(args[1]), new ItemColor(args[2]), getVariable(args[3], Signal.class));
+                            object = new Door(parseVector(args[1]), new ItemColor(args[2]),
+                                getVariable(args[3], Signal.class));
                             break;
                         case "antiplayer":
                             checkArgs(args, 2);
@@ -140,7 +178,8 @@ public class DynamicLevel extends Level
                             break;
                         case "exit":
                             checkArgs(args, 3);
-                            object = new Exit(parseVector(args[1]), new DynamicLevel(args[2]), getVariable(args[3], Signal.class));
+                            object = new Exit(parseVector(args[1]), new DynamicLevel(args[2]),
+                                getVariable(args[3], Signal.class));
                             break;
                         case "heart":
                             checkArgs(args, 1);
@@ -173,7 +212,8 @@ public class DynamicLevel extends Level
                             break;
                         case "scenery":
                             checkArgs(args, 4);
-                            object = new Scenery(parseVector(args[1]), args[2], Double.parseDouble(args[3]), Double.parseDouble(args[4]));
+                            object = new Scenery(parseVector(args[1]), args[2],
+                                Double.parseDouble(args[3]), Double.parseDouble(args[4]));
                             break;
                         case "and":
                             checkArgs(args, 2);
@@ -199,7 +239,8 @@ public class DynamicLevel extends Level
                 }
                 catch(Exception e)
                 {
-                    System.out.println("\033[31mLevel file: " + filename + " | Ignored line " + lineNumber + " | " + e.getMessage() + "\033[0m");
+                    System.out.println("\033[31mLevel file: " + filename + " | Ignored line " + lineNumber
+                        + " | " + e.getMessage() + "\033[0m");
                 }
             }
         }

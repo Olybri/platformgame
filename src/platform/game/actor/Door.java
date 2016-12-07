@@ -6,6 +6,10 @@ import platform.util.Box;
 import platform.util.Input;
 import platform.util.Vector;
 
+/**
+ * Solid block that disappears whenever the given signal is active. It turns back to solid whenever the given signal is
+ * inactive again.
+ */
 public class Door extends Block
 {
     private Signal signal;
@@ -13,6 +17,11 @@ public class Door extends Block
     private ItemColor color;
     private boolean open = false;
     
+    /**
+     * @param position position of the door
+     * @param color color of the sprite
+     * @param signal signal that opens or closes the door
+     */
     public Door(Vector position, ItemColor color, Signal signal)
     {
         super(new Box(position, 1, 1), "lock." + color.toString());

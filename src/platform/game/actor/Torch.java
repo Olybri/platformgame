@@ -6,6 +6,10 @@ import platform.util.Box;
 import platform.util.Input;
 import platform.util.Vector;
 
+/**
+ * Non-solid item that activates a signal whenever it is lit with a fireball.
+ * The signal turns back to inactive whenever the flame is blown out.
+ */
 public class Torch extends Actor implements Signal
 {
     private Vector position;
@@ -13,6 +17,10 @@ public class Torch extends Actor implements Signal
     private double SIZE = 1;
     private double variation = 0;
     
+    /**
+     * @param position position of the item
+     * @param lit true if it should be lit by default, false otherwise
+     */
     public Torch(Vector position, boolean lit)
     {
         if(position == null)

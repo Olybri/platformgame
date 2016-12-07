@@ -8,6 +8,9 @@ import platform.util.Input;
 import platform.util.Output;
 import platform.util.Vector;
 
+/**
+ * Collectible item that activates a signal once taken.
+ */
 public class Key extends Actor implements Signal
 {
     private Vector position;
@@ -15,6 +18,10 @@ public class Key extends Actor implements Signal
     private double SIZE = 0.75;
     private ItemColor color;
     
+    /**
+     * @param position position of the item
+     * @param color color of the sprite
+     */
     public Key(Vector position, ItemColor color)
     {
         if(position == null)

@@ -16,30 +16,67 @@ public interface World
      */
     Loader getLoader();
     
+    /**
+     * @return current world gravity
+     */
     Vector getGravity();
     
-    // permet d'indiquer que la transition à un autre niveau
-    // doit se faire :
+    /**
+     * Clear the current level and run the next level.
+     */
     void nextLevel();
     
-    // permet de passer au niveau level :
+    /**
+     * Store the next level.
+     *
+     * @param level instance of the next level
+     */
     void setNextLevel(Level level);
     
+    /**
+     * Cause damage to all actors in a specific area.
+     *
+     * @param area targeted area
+     * @param instigator actor causing damage
+     * @param type damage type
+     * @param amount damage quantity
+     * @param location damage source position
+     * @return number of hurt actors
+     */
     int hurt(Box area, Actor instigator, Damage type, double amount, Vector location);
     
     /**
-     * Set viewport location and size.
+     * Set viewport location and size, with smooth panning.
      *
-     * @param center viewport center , not null
-     * @param radius viewport radius , positive
+     * @param center viewport center, not null
+     * @param radius viewport radius, positive
      */
     void setView(Vector center, double radius);
     
+    /**
+     * Reset viewport location and size, without panning.
+     *
+     * @param center viewport center, not null
+     * @param radius viewport radius, positive
+     */
     void resetView(Vector center, double radius);
     
+    /**
+     * @return current view center
+     */
     Vector getViewCenter();
     
+    /**
+     * Add new actor to the world
+     *
+     * @param actor actor to be registered
+     */
     void register(Actor actor);
     
+    /**
+     * Remove existing actor from the world
+     *
+     * @param actor actor to be unregistered
+     */
     void unregister(Actor actor);
 }
