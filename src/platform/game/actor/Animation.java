@@ -16,9 +16,8 @@ public class Animation {
     private boolean once;
     private int index = 0;
 
-    public Animation(String[] sprites, Vector position, double frameDuration, boolean once) {
+    public Animation(String[] sprites, double frameDuration, boolean once) {
         this.sprites = sprites;
-        this.position = position;
         this.frameDuration = frameDuration;
         this.once = once;
     }
@@ -27,16 +26,21 @@ public class Animation {
         elapsedTime += input.getDeltaTime();
 
         index = (int) Math.floor(elapsedTime / frameDuration);
+        System.out.println(index);
 
-        if (once)
+        if (once) {
             if (index > sprites.length - 1)
                 index = sprites.length - 1;
-        else
-            if (index >= sprites.length)
+        } else {
+            if (index > sprites.length - 1) {
                 index = 0;
+                elapsedTime = 0;
+            }
+        }
     }
 
     public String getSprite() {
+        System.out.println(sprites[index]);
         return sprites[index];
     }
 }

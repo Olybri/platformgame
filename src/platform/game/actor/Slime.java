@@ -30,8 +30,8 @@ public class Slime extends Actor {
         this.velocity = velocity;
         this.right = right;
         priority = 50;
-        animationRight = new Animation(this.rightSprites, this.getPosition(), 0.3, true);
-        animationLeft = new Animation(this.leftSprites, this.getPosition(), 0.3, true);
+        animationRight = new Animation(this.rightSprites, 0.3, false);
+        animationLeft = new Animation(this.leftSprites, 0.3, false);
     }
 
     @Override
