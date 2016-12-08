@@ -71,7 +71,7 @@ public class Command
         enabled = value;
     }
     
-    public static Button getButton(String key)
+    private static Button getButton(String key)
     {
         return input.getKeyboardButton(commands.get(key));
     }

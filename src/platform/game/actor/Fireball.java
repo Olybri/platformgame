@@ -3,6 +3,9 @@ package platform.game.actor;// Created by Loris Witschard on 21.11.16.
 import platform.game.Damage;
 import platform.util.*;
 
+/**
+ * Fire projectile that causes fire damages.
+ */
 public class Fireball extends Actor
 {
     private Vector position;
@@ -12,6 +15,11 @@ public class Fireball extends Actor
     private double lifeTime = 0;
     private double lifeTimeMax = 5;
     
+    /**
+     * @param position initial position
+     * @param velocity initial speed
+     * @param owner actor which threw the fireball
+     */
     public Fireball(Vector position, Vector velocity, Actor owner)
     {
         if(position == null || velocity == null)

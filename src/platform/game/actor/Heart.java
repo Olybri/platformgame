@@ -6,6 +6,9 @@ import platform.util.Input;
 import platform.util.Output;
 import platform.util.Vector;
 
+/**
+ * Item that heal up actors taking it. It reappears after some delay.
+ */
 public class Heart extends Actor
 {
     private Vector position;
@@ -14,6 +17,9 @@ public class Heart extends Actor
     private double cooldown = 0;
     private final double cooldownMax = 10;
     
+    /**
+     * @param position position of the item
+     */
     public Heart(Vector position)
     {
         if(position == null)

@@ -5,6 +5,9 @@ import platform.util.Input;
 import platform.util.Output;
 import platform.util.Vector;
 
+/**
+ * Group of hearts that floats over a player, displaying his health.
+ */
 public class Overlay extends Actor
 {
     private Player player;
@@ -14,6 +17,9 @@ public class Overlay extends Actor
     private final double countdownMax = 0.3;
     private double currentHealth = 0;
     
+    /**
+     * @param player the associated player
+     */
     public Overlay(Player player)
     {
         if(player == null)
@@ -60,7 +66,9 @@ public class Overlay extends Actor
             if(countdown > 0)
                 size += countdown / 3;
             
-            Vector position = player.getPosition().add(new Vector(size * (i - 3), player.getSize() / 2 + 0.25));
+            Vector position = player.getPosition().add(
+                new Vector(size * (i - 3), player.getBox().getHeight() / 2 + 0.25));
+            
             double angle = 0;
             if(health <= 1)
             {

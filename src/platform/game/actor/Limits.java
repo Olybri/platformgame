@@ -4,10 +4,16 @@ import platform.game.Damage;
 import platform.util.Box;
 import platform.util.Vector;
 
+/**
+ * Non-solid invisible box that kills actors if they collide.
+ */
 public class Limits extends Actor
 {
     private Box box;
     
+    /**
+     * @param box hitbox of the limit
+     */
     public Limits(Box box)
     {
         if(box == null)

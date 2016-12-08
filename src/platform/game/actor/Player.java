@@ -7,6 +7,9 @@ import platform.util.*;
 
 import java.util.HashMap;
 
+/**
+ * Player controlled by inputs.
+ */
 public class Player extends Actor
 {
     private Vector position;
@@ -32,6 +35,9 @@ public class Player extends Actor
         DOWN
     }
     
+    /**
+     * @param position initial position
+     */
     public Player(Vector position)
     {
         if(position == null)
@@ -42,26 +48,36 @@ public class Player extends Actor
         priority = 40;
     }
     
+    /**
+     * @return current health of the player
+     */
     public double getHealth()
     {
         return health;
     }
     
+    /**
+     * @return maximum health of the player
+     */
     public double getHealthMax()
     {
         return healthMax;
     }
     
-    public double getSize()
-    {
-        return SIZE;
-    }
-    
+    /**
+     * @return true if the player has moved since his instantiation, false otherwise
+     */
     public boolean hasMoved()
     {
         return hasMoved;
     }
     
+    /**
+     * Add or subtract health to the player
+     *
+     * @param value quantity of health added, can be negative
+     * @return true if the current health has changed, false otherwise
+     */
     private boolean addHealth(double value)
     {
         if(value < 0)

@@ -30,9 +30,9 @@ public class Simulator implements World
     private boolean transition = false;
     
     /**
-     * Create a new simulator .
+     * Create a new simulator.
      *
-     * @param loader associated loader , not null
+     * @param loader associated loader, not null
      */
     public Simulator(Loader loader, String[] args)
     {

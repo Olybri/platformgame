@@ -10,6 +10,10 @@ public class Block extends Actor
     private Box box;
     private String spriteName;
     
+    /**
+     * @param box bounding box of the block
+     * @param spriteName name of the sprite to draw
+     */
     public Block(Box box, String spriteName)
     {
         if(box == null || spriteName == null)

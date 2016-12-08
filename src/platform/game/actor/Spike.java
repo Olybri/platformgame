@@ -5,6 +5,9 @@ import platform.util.Box;
 import platform.util.Input;
 import platform.util.Vector;
 
+/**
+ * Solid item that hurts actors hitting it.
+ */
 public class Spike extends Actor
 {
     private Vector position;
@@ -13,6 +16,9 @@ public class Spike extends Actor
     private double cooldown = 0;
     private final double cooldownMax = 0.5;
     
+    /**
+     * @param position position of the item
+     */
     public Spike(Vector position)
     {
         if(position == null)

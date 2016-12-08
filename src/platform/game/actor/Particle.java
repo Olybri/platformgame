@@ -5,6 +5,9 @@ import platform.util.Input;
 import platform.util.Output;
 import platform.util.Vector;
 
+/**
+ * Abstract particle that displays an animation before disappearing.
+ */
 public abstract class Particle extends Actor
 {
     private String[] sprites;
@@ -15,6 +18,12 @@ public abstract class Particle extends Actor
     private double[] sizes;
     private int index = 0;
     
+    /**
+     * @param position position of the particle
+     * @param sprites sprites to display one after another
+     * @param sizes sizes of each sprite
+     * @param frameDuration delay between each frame
+     */
     public Particle(Vector position, String[] sprites, double[] sizes, double frameDuration)
     {
         if(position == null)

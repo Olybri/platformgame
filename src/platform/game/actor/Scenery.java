@@ -2,6 +2,9 @@ package platform.game.actor;// Created by Loris Witschard on 25.11.16.
 
 import platform.util.*;
 
+/**
+ * Non-solid visual items floating on the foreground or background.
+ */
 public class Scenery extends Actor
 {
     private String spriteName;
@@ -9,6 +12,12 @@ public class Scenery extends Actor
     private double distanceFactor;
     private double sizeFactor;
     
+    /**
+     * @param position position of the scenery
+     * @param spriteName name of the sprite to draw
+     * @param sizeFactor scaling factor
+     * @param distanceFactor depth factor (higher than 0: further, lower than 0: closer)
+     */
     public Scenery(Vector position, String spriteName, double sizeFactor, double distanceFactor)
     {
         if(spriteName == null)

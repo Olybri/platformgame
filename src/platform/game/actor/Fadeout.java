@@ -3,12 +3,19 @@ package platform.game.actor;// Created by Loris Witschard on 11/29/2016.
 import platform.util.Input;
 import platform.util.Output;
 
+/**
+ * Black screen making the world slowly fade out
+ */
 public class Fadeout extends Actor
 {
     private double countdown;
     private double countdownMax;
     private double delay;
     
+    /**
+     * @param time time before the black screen is totally opaque
+     * @param delay delay before the fadeout starts
+     */
     public Fadeout(double time, double delay)
     {
         countdownMax = time;
