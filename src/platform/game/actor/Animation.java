@@ -1,46 +1,59 @@
-package platform.game.actor;
-
-import platform.util.Input;
-import platform.util.Output;
-import platform.util.Vector;
+package platform.game.actor; // Created by Saralfddin on 07.12.16.
 
 /**
- * Created by Saralfddin on 07.12.16.
+ * Class that gives a sprite name depending on the time
  */
-public class Animation {
+public class Animation
+{
     private String[] sprites;
-    private Vector position;
-
+    
     private double frameDuration;
     private double elapsedTime = 0;
     private boolean once;
     private int index = 0;
-
-    public Animation(String[] sprites, double frameDuration, boolean once) {
+    
+    /**
+     * @param sprites array of different sprite names
+     * @param frameDuration delay between each frame
+     * @param once true to play the animation just once, false otherwise
+     */
+    public Animation(String[] sprites, double frameDuration, boolean once)
+    {
         this.sprites = sprites;
         this.frameDuration = frameDuration;
         this.once = once;
     }
-
-    public void update(Input input) {
-        elapsedTime += input.getDeltaTime();
-
+    
+    /**
+     * Update the current frame index depending on the time
+     *
+     * @param dt time elapsed since last frame
+     */
+    public void update(double dt)
+    {
+        elapsedTime += dt;
+        
         index = (int) Math.floor(elapsedTime / frameDuration);
-        System.out.println(index);
-
-        if (once) {
-            if (index > sprites.length - 1)
+        
+        if(once)
+        {
+            if(index > sprites.length - 1)
                 index = sprites.length - 1;
-        } else {
-            if (index > sprites.length - 1) {
+        } else
+        {
+            if(index > sprites.length - 1)
+            {
                 index = 0;
                 elapsedTime = 0;
             }
         }
     }
-
-    public String getSprite() {
-        System.out.println(sprites[index]);
+    
+    /**
+     * @return sprite name associated to current frame
+     */
+    public String getSprite()
+    {
         return sprites[index];
     }
 }
