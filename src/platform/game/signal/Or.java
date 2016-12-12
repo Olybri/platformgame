@@ -9,7 +9,7 @@ public class Or implements Signal
     private final Signal right;
     
     /**
-     * @param left first signal
+     * @param left  first signal
      * @param right second signal
      */
     public Or(Signal left, Signal right)

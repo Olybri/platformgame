@@ -18,7 +18,7 @@ public class Fireball extends Actor
     /**
      * @param position initial position
      * @param velocity initial speed
-     * @param owner actor which threw the fireball
+     * @param owner    actor which threw the fireball
      */
     public Fireball(Vector position, Vector velocity, Actor owner)
     {

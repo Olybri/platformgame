@@ -13,7 +13,7 @@ public class Fadeout extends Actor
     private double delay;
     
     /**
-     * @param time time before the black screen is totally opaque
+     * @param time  time before the black screen is totally opaque
      * @param delay delay before the fadeout starts
      */
     public Fadeout(double time, double delay)

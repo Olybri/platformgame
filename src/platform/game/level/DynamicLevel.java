@@ -66,7 +66,7 @@ public class DynamicLevel extends Level
      * Get reference on a stored object
      *
      * @param symbol name of the object
-     * @param type type of the object
+     * @param type   type of the object
      * @return object associated to the name, if it exists
      */
     private <T> T getVariable(String symbol, Class<T> type) throws IllegalArgumentException
@@ -87,7 +87,7 @@ public class DynamicLevel extends Level
      * Store a reference on a object
      *
      * @param symbol name of the object
-     * @param value instance of the object
+     * @param value  instance of the object
      */
     private void addVariable(String symbol, Object value) throws IllegalArgumentException
     {
@@ -100,7 +100,7 @@ public class DynamicLevel extends Level
     /**
      * Check if an array has enough arguments
      *
-     * @param args arguments array
+     * @param args  arguments array
      * @param count number of arguments expected
      */
     private void checkArgs(String[] args, int count) throws IllegalArgumentException

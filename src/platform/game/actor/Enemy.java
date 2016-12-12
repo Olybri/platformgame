@@ -4,7 +4,7 @@ import platform.game.Damage;
 import platform.util.*;
 
 /**
- * Basic enemy that dies from fireballs
+ * Abstract class that implements basic enemies dying from fireballs
  */
 public abstract class Enemy extends Actor
 {
@@ -25,10 +25,14 @@ public abstract class Enemy extends Actor
     private boolean right;
     
     /**
-     * @param box         initial bounding box
-     * @param destination destination to reach
-     * @param velocity    speed factor
-     * @param right       true if the slime should travel right, false otherwise
+     * @param box            initial bounding box
+     * @param destination    destination to reach
+     * @param animationLeft  left walking animation
+     * @param animationRight right walking animation
+     * @param deadLeft       left dead sprite name
+     * @param deadRight      right dead sprite name
+     * @param velocity       speed factor
+     * @param right          true if it should travel right, false otherwise
      */
     public Enemy(Box box, Vector destination, Animation animationLeft, Animation animationRight,
                  String deadLeft, String deadRight, double velocity, boolean right)
@@ -73,7 +77,8 @@ public abstract class Enemy extends Actor
                     forward = false;
                     right = !right;
                 }
-            } else
+            }
+            else
             {
                 current -= input.getDeltaTime() * velocity;
                 if(current < 0.0)
@@ -83,7 +88,8 @@ public abstract class Enemy extends Actor
                     right = !right;
                 }
             }
-        } else if(cooldown <= 0)
+        }
+        else if(cooldown <= 0)
         {
             getWorld().register(new Smoke(getBox().getCenter()));
             getWorld().unregister(this);

@@ -5,6 +5,11 @@ import platform.util.Vector;
 
 public class Slime extends Enemy
 {
+    /**
+     * @param position    initial position
+     * @param destination destination to reach
+     * @param right       true if the slime should travel right, false otherwise
+     */
     public Slime(Vector position, Vector destination, boolean right)
     {
         super(new Box(position.sub(new Vector(0, 0.25)), 1, 0.5),

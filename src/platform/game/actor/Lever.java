@@ -24,7 +24,7 @@ public class Lever extends Actor implements Signal
     {
         if(position == null)
             throw new NullPointerException();
-    
+        
         this.position = position;
         
         priority = 50;

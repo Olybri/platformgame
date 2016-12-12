@@ -17,11 +17,11 @@ public class Mover extends Block
     private double current = 0;
     
     /**
-     * @param box bounding box of the mover
-     * @param spriteName name of the sprite to draw
+     * @param box         bounding box of the mover
+     * @param spriteName  name of the sprite to draw
      * @param destination destination to reach when the given signal is active
-     * @param velocity speed of the mover while travelling
-     * @param signal signal that makes the mover travel
+     * @param velocity    speed of the mover while travelling
+     * @param signal      signal that makes the mover travel
      */
     public Mover(Box box, String spriteName, Vector destination, double velocity, Signal signal)
     {

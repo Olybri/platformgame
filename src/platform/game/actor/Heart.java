@@ -51,7 +51,7 @@ public class Heart extends Actor
     @Override
     public void draw(Input input, Output output)
     {
-        Vector offset = new Vector(0, 0.15 * Math.sin(input.getTime() * 2 +  + position.getAngle()));
+        Vector offset = new Vector(0, 0.15 * Math.sin(input.getTime() * 2 + +position.getAngle()));
         if(sprite != null)
             output.drawSprite(sprite, getBox().add(offset));
     }

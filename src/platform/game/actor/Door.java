@@ -20,8 +20,8 @@ public class Door extends Block
     
     /**
      * @param position position of the door
-     * @param color color of the sprite
-     * @param signal signal that opens or closes the door
+     * @param color    color of the sprite
+     * @param signal   signal that opens or closes the door
      */
     public Door(Vector position, ItemColor color, Signal signal)
     {
@@ -54,7 +54,7 @@ public class Door extends Block
             getWorld().register(new Smoke(position));
             open = false;
         }
-    
+        
         sprite = getSprite("lock." + color.toString());
     }
     

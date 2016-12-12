@@ -8,7 +8,7 @@ import platform.util.Box;
 public class Platform extends Block
 {
     /**
-     * @param box bounding box of the platform
+     * @param box        bounding box of the platform
      * @param spriteName name of the sprite to draw
      */
     public Platform(Box box, String spriteName)
@@ -31,6 +31,6 @@ public class Platform extends Block
         if(getBox().isColliding(other.getBox())
             && other.getPosition().getX() > getBox().getMin().getX() && other.getPosition().getX() < getBox().getMax().getX()
             && other.getBox().getMin().getY() > getBox().getMax().getY() - 0.2)
-                other.interact(this);
+            other.interact(this);
     }
 }

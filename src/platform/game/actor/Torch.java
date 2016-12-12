@@ -19,7 +19,7 @@ public class Torch extends Actor implements Signal
     
     /**
      * @param position position of the item
-     * @param lit true if it should be lit by default, false otherwise
+     * @param lit      true if it should be lit by default, false otherwise
      */
     public Torch(Vector position, boolean lit)
     {

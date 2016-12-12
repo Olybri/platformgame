@@ -23,9 +23,9 @@ public class Spike extends Actor
     {
         if(position == null)
             throw new NullPointerException();
-    
+        
         this.position = position;
-    
+        
         priority = 50;
     }
     
@@ -39,9 +39,9 @@ public class Spike extends Actor
     public void interact(Actor other)
     {
         super.interact(other);
-    
+        
         if(cooldown <= 0 && getBox().isColliding(other.getBox()))
-            if(other.hurt(this, Damage.SPIKE, 0.4, position.add(new Vector(0, SIZE/2))))
+            if(other.hurt(this, Damage.SPIKE, 0.4, position.add(new Vector(0, SIZE / 2))))
                 cooldown = cooldownMax;
             else
                 other.interact(this);

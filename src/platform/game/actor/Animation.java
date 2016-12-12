@@ -13,9 +13,9 @@ public class Animation
     private int index = 0;
     
     /**
-     * @param sprites array of different sprite names
+     * @param sprites       array of different sprite names
      * @param frameDuration delay between each frame
-     * @param once true to play the animation just once, false otherwise
+     * @param once          true to play the animation just once, false otherwise
      */
     public Animation(String[] sprites, double frameDuration, boolean once)
     {
@@ -39,7 +39,8 @@ public class Animation
         {
             if(index > sprites.length - 1)
                 index = sprites.length - 1;
-        } else
+        }
+        else
         {
             if(index > sprites.length - 1)
             {

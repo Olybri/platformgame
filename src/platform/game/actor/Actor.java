@@ -120,9 +120,9 @@ public abstract class Actor implements Comparable<Actor>
      * Interpret damage sent from another actor.
      *
      * @param instigator actor which sent damage
-     * @param type damage type
-     * @param amount damage quantity
-     * @param location damage source position
+     * @param type       damage type
+     * @param amount     damage quantity
+     * @param location   damage source position
      * @return true if the actor is hurt, false otherwise
      */
     public boolean hurt(Actor instigator, Damage type, double amount, Vector location)
@@ -145,7 +145,7 @@ public abstract class Actor implements Comparable<Actor>
     /**
      * Draw the sprite on the given render target.
      *
-     * @param input input system of the game
+     * @param input  input system of the game
      * @param output render system of the game
      */
     public void draw(Input input, Output output)

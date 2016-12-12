@@ -13,9 +13,9 @@ public class Scenery extends Actor
     private double sizeFactor;
     
     /**
-     * @param position position of the scenery
-     * @param spriteName name of the sprite to draw
-     * @param sizeFactor scaling factor
+     * @param position       position of the scenery
+     * @param spriteName     name of the sprite to draw
+     * @param sizeFactor     scaling factor
      * @param distanceFactor depth factor (higher than 0: further, lower than 0: closer)
      */
     public Scenery(Vector position, String spriteName, double sizeFactor, double distanceFactor)
@@ -28,7 +28,7 @@ public class Scenery extends Actor
         this.sizeFactor = sizeFactor / 70;
         this.distanceFactor = distanceFactor;
         
-        priority = (int)(distanceFactor >= 0 ? (1 - distanceFactor) * 10 : 1000 + (1 - distanceFactor) * 10);
+        priority = (int) (distanceFactor >= 0 ? (1 - distanceFactor) * 10 : 1000 + (1 - distanceFactor) * 10);
     }
     
     @Override

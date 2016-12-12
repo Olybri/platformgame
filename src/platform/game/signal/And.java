@@ -9,7 +9,7 @@ public class And implements Signal
     private final Signal right;
     
     /**
-     * @param left first signal
+     * @param left  first signal
      * @param right second signal
      */
     public And(Signal left, Signal right)

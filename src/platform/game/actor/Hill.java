@@ -15,9 +15,9 @@ public class Hill extends Block
     private double height = 0;
     
     /**
-     * @param box bounding box of the hill
+     * @param box        bounding box of the hill
      * @param spriteName name of the sprite to draw
-     * @param right true for right hill, false for left hill
+     * @param right      true for right hill, false for left hill
      */
     public Hill(Box box, String spriteName, boolean right)
     {
@@ -45,7 +45,7 @@ public class Hill extends Block
     public void interact(Actor other)
     {
         super.interact(other);
-    
+        
         if(fullBox.isColliding(other.getBox()))
         {
             if(right)

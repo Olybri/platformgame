@@ -19,9 +19,9 @@ public abstract class Particle extends Actor
     private int index = 0;
     
     /**
-     * @param position position of the particle
-     * @param sprites sprites to display one after another
-     * @param sizes sizes of each sprite
+     * @param position      position of the particle
+     * @param sprites       sprites to display one after another
+     * @param sizes         sizes of each sprite
      * @param frameDuration delay between each frame
      */
     public Particle(Vector position, String[] sprites, double[] sizes, double frameDuration)

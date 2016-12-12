@@ -22,8 +22,8 @@ public class Exit extends Actor
     
     /**
      * @param position position of the exit
-     * @param next instance of the next level to be loaded
-     * @param signal signal that opens or closes the exit
+     * @param next     instance of the next level to be loaded
+     * @param signal   signal that opens or closes the exit
      */
     public Exit(Vector position, Level next, Signal signal)
     {
@@ -43,7 +43,7 @@ public class Exit extends Actor
     public void update(Input input)
     {
         super.update(input);
-    
+        
         if(signal.isActive() && !open)
         {
             getWorld().register(new Smoke(position));

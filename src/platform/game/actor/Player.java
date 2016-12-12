@@ -225,8 +225,8 @@ public class Player extends Actor
                     && other.getBox().getMin().getY() < getBox().getMin().getY()
                     && other.getBox().getMax().getX() > getBox().getMax().getX()
                     && other.getBox().getMax().getY() > getBox().getMax().getY())
-                        addHealth(-0.5);
-                    
+                    addHealth(-0.5);
+                
                 if(other.getBox().getMax().getX() < position.getX())
                     collisions.put(Side.LEFT, true);
                 else if(other.getBox().getMin().getX() > position.getX())

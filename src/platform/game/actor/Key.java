@@ -20,7 +20,7 @@ public class Key extends Actor implements Signal
     
     /**
      * @param position position of the item
-     * @param color color of the sprite
+     * @param color    color of the sprite
      */
     public Key(Vector position, ItemColor color)
     {

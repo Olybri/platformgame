@@ -36,11 +36,11 @@ public interface World
     /**
      * Cause damage to all actors in a specific area.
      *
-     * @param area targeted area
+     * @param area       targeted area
      * @param instigator actor causing damage
-     * @param type damage type
-     * @param amount damage quantity
-     * @param location damage source position
+     * @param type       damage type
+     * @param amount     damage quantity
+     * @param location   damage source position
      * @return number of hurt actors
      */
     int hurt(Box area, Actor instigator, Damage type, double amount, Vector location);

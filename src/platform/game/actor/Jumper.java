@@ -12,7 +12,7 @@ public class Jumper extends Actor
     private final double SIZE = 1;
     
     private double cooldown = 0;
-    private final double cooldownMax =  0.5;
+    private final double cooldownMax = 0.5;
     
     /**
      * @param position position of the item
@@ -52,7 +52,7 @@ public class Jumper extends Actor
             Vector below = new Vector(position.getX(), position.getY() - 1);
             if(other.hurt(this, Damage.AIR, 10.0, below))
                 cooldown = cooldownMax;
-    
+            
         }
         else if(cooldown < cooldownMax - 0.1)
             other.interact(this);

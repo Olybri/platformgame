@@ -35,7 +35,7 @@ public class BasicInteract extends Level
         world.register(new Spike(new Vector(4, 3.25)));
         Torch torch = new Torch(new Vector(2.5, 3.5), false);
         world.register(torch);
-    
+        
         Key key = new Key(new Vector(10, 3.5), ItemColor.RED);
         world.register(key);
         Lever lever = new Lever(new Vector(6, 1.5));
@@ -48,13 +48,13 @@ public class BasicInteract extends Level
         
         world.register(new Limits(new Box(new Vector(0, -25), 1000, 30)));
         world.register(new Scenery(new Vector(0, 1), "bg.grasslands", 0.1, 0.5));
-        world.register(new Scenery(new Vector( 0, 0), "duck", 0.02, -0.5));
-        world.register(new Scenery(new Vector( -3, 0.5), "duck", 0.02, -0.1));
-        world.register(new Scenery(new Vector( 4, 1), "duck", 0.02, -0.3));
+        world.register(new Scenery(new Vector(0, 0), "duck", 0.02, -0.5));
+        world.register(new Scenery(new Vector(-3, 0.5), "duck", 0.02, -0.1));
+        world.register(new Scenery(new Vector(4, 1), "duck", 0.02, -0.3));
         world.register(new Scenery(new Vector(-2, 2), "duck", 0.02, -0.7));
-        world.register(new Scenery(new Vector( 3, 5), "duck", 0.02, 0.2));
-        world.register(new Scenery(new Vector( 0, 6), "duck", 0.02, 0.3));
-        world.register(new Scenery(new Vector( -1, 5.5), "duck", 0.02, 0.4));
+        world.register(new Scenery(new Vector(3, 5), "duck", 0.02, 0.2));
+        world.register(new Scenery(new Vector(0, 6), "duck", 0.02, 0.3));
+        world.register(new Scenery(new Vector(-1, 5.5), "duck", 0.02, 0.4));
         
         Player player = new Player(new Vector(1.5, 2));
         world.register(player);

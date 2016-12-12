@@ -36,7 +36,7 @@ public class AntiPlayer extends Actor
     
     /**
      * @param player player to follow
-     * @param delay delay between the player and the antiplayer actions
+     * @param delay  delay between the player and the antiplayer actions
      */
     public AntiPlayer(Player player, double delay)
     {
