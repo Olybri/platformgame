@@ -189,3 +189,91 @@ exit -0.5:8 level1.txt true
 heart 11.5:8.5
 
 limits 0:-20:1000:30
+
+scenery -3:3 cst/non.solid 1 0
+scenery -3:4 cst/non.solid 1 0
+scenery -3:5 cst/non.solid 1 0
+scenery -3:6 cst/non.solid 1 0
+scenery -3:7 cst/non.solid 1 0
+scenery -3:8 cst/non.solid 1 0
+scenery -3:9 cst/non.solid 1 0
+
+scenery -2:3 cst/non.solid 1 0
+scenery -2:4 cst/non.solid 1 0
+scenery -2:5 cst/non.solid 1 0
+scenery -2:6 cst/non.solid 1 0
+scenery -2:7 cst/non.solid 1 0
+scenery -2:8 cst/non.solid 1 0
+scenery -2:9 cst/non.solid 1 0
+
+scenery -1:3 cst/non.solid 1 0
+scenery -1:4 cst/non.solid 1 0
+scenery -1:5 cst/non.solid 1 0
+scenery -1:6 cst/non.solid 1 0
+scenery -1:7 cst/non.solid 1 0
+scenery -1:8 cst/non.solid 1 0
+scenery -1:9 cst/non.solid 1 0
+
+scenery  0:3 cst/non.solid 1 0
+scenery  0:4 cst/non.solid 1 0
+scenery  0:5 cst/non.solid 1 0
+scenery  0:6 cst/non.solid 1 0
+scenery  0:7 cst/non.solid 1 0
+scenery  0:8 cst/non.solid 1 0
+scenery  0:9 cst/non.solid 1 0
+
+scenery  1:3 cst/non.solid 1 0
+scenery  1:4 cst/non.solid 1 0
+scenery  1:5 cst/non.solid 1 0
+scenery  1:6 cst/non.solid 1 0
+scenery  1:7 cst/non.solid 1 0
+scenery  1:8 cst/non.solid 1 0
+scenery  1:9 cst/non.solid 1 0
+
+scenery  2:3 cst/non.solid 1 0
+scenery  2:4 cst/non.solid 1 0
+scenery  2:5 cst/non.solid 1 0
+scenery  2:6 cst/non.solid 1 0
+scenery  2:7 cst/non.solid 1 0
+scenery  2:8 cst/non.solid 1 0
+scenery  2:9 cst/non.solid 1 0
+
+scenery  3:3 cst/non.solid 1 0
+scenery  3:4 cst/non.solid 1 0
+scenery  3:5 cst/non.solid 1 0
+scenery  3:6 cst/non.solid 1 0
+scenery  3:7 cst/non.solid 1 0
+scenery  3:8 cst/non.solid 1 0
+scenery  3:9 cst/non.solid 1 0
+
+scenery  4:1 cst/non.solid 1 0
+scenery  4:2 cst/non.solid 1 0
+scenery  4:3 cst/non.solid 1 0
+scenery  4:4 cst/non.solid 1 0
+scenery  4:5 cst/non.solid 1 0
+scenery  4:6 cst/non.solid 1 0
+scenery  4:7 cst/non.solid 1 0
+scenery  4:8 cst/non.solid 1 0
+scenery  4:9 cst/non.solid 1 0
+
+scenery  5:1 cst/non.solid 1 0
+scenery  5:2 cst/non.solid 1 0
+scenery  5:3 cst/non.solid 1 0
+scenery  5:4 cst/non.solid 1 0
+scenery  5:5 cst/non.solid 1 0
+scenery  5:6 cst/non.solid 1 0
+scenery  5:7 cst/non.solid 1 0
+scenery  5:8 cst/non.solid 1 0
+scenery  5:9 cst/non.solid 1 0
+
+scenery  6:3 cst/non.solid 1 0
+scenery  6:4 cst/non.solid 1 0
+scenery  6:5 cst/non.solid 1 0
+scenery  6:6 cst/non.solid 1 0
+scenery  6:7 cst/non.solid 1 0
+scenery  6:8 cst/non.solid 1 0
+scenery  6:9 cst/non.solid 1 0
+
+scenery 3:3 cst/bg.1 3.25 0.4
+scenery 0:0 cst/bg.2 160 0.99
+scenery 10:9 cst/fg 2.2 -0.5

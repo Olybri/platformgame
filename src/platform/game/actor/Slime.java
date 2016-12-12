@@ -39,10 +39,10 @@ public class Slime extends Actor
         priority = 50;
         
         String[] rightSprites = {"slime.right.1", "slime.right.2", "slime.right.3", "slime.right.2"};
-        animationRight = new Animation(rightSprites, 0.3, false);
+        animationRight = new Animation(rightSprites, 0.25, false);
         
         String[] leftSprites = {"slime.left.1", "slime.left.2", "slime.left.3", "slime.left.2"};
-        animationLeft = new Animation(leftSprites, 0.3, false);
+        animationLeft = new Animation(leftSprites, 0.25, false);
     }
     
     @Override
