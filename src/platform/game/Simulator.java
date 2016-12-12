@@ -26,7 +26,7 @@ public class Simulator implements World
     
     private final Vector GRAVITY = new Vector(0, -9.81);
     
-    private Level next = new DynamicLevel("level1.txt");
+    private Level next = new DynamicLevel("level2.txt");
     private boolean transition = false;
     
     /**

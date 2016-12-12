@@ -82,6 +82,7 @@ public class Slime extends Actor
             }
         } else if(cooldown <= 0)
         {
+            getWorld().register(new Smoke(getBox().getCenter()));
             getWorld().unregister(this);
         }
         

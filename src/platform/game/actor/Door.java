@@ -4,6 +4,7 @@ import platform.game.ItemColor;
 import platform.game.signal.Signal;
 import platform.util.Box;
 import platform.util.Input;
+import platform.util.Output;
 import platform.util.Vector;
 
 /**
@@ -15,7 +16,7 @@ public class Door extends Block
     private Signal signal;
     private Vector position;
     private ItemColor color;
-    private boolean open = false;
+    private boolean open;
     
     /**
      * @param position position of the door
@@ -32,6 +33,8 @@ public class Door extends Block
         this.position = position;
         this.signal = signal;
         this.color = color;
+        
+        open = signal.isActive();
         
         priority = 20;
     }
@@ -52,12 +55,18 @@ public class Door extends Block
             open = false;
         }
     
-        sprite = open ? null : getSprite("lock." + color.toString());
+        sprite = getSprite("lock." + color.toString());
     }
     
     @Override
     public boolean isSolid()
     {
         return !signal.isActive();
+    }
+    
+    @Override
+    public void draw(Input input, Output output)
+    {
+        output.drawSprite(sprite, getBox(), 0, open ? 0.2 : 1);
     }
 }

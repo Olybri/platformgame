@@ -25,7 +25,7 @@ public class Scenery extends Actor
         
         this.position = position;
         this.spriteName = spriteName;
-        this.sizeFactor = sizeFactor;
+        this.sizeFactor = sizeFactor / 70;
         this.distanceFactor = distanceFactor;
         
         priority = (int)(distanceFactor >= 0 ? (1 - distanceFactor) * 10 : 1000 + (1 - distanceFactor) * 10);

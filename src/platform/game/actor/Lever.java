@@ -15,7 +15,7 @@ public class Lever extends Actor implements Signal
     private Vector position;
     private final double SIZE = 1;
     private double countdown = 0;
-    private double countdownMax = 5;
+    private double countdownMax = 10;
     
     /**
      * @param position position of the item

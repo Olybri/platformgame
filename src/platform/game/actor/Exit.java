@@ -17,7 +17,7 @@ public class Exit extends Actor
     private Level next;
     private Signal signal;
     
-    private boolean open = false;
+    private boolean open;
     private final double SIZE = 1;
     
     /**
@@ -33,6 +33,8 @@ public class Exit extends Actor
         this.position = position;
         this.next = next;
         this.signal = signal;
+        
+        open = signal.isActive();
         
         priority = 20;
     }
