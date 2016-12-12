@@ -2,7 +2,7 @@
 
 player = player 10:3.5
 // antiplayer player 3
-slime 15.5:1.25:1:0.5 18.5:1.25 0.25 true
+slime 15.5:1.5 18.5:1.5 true
 // slime 18.5:1.25:1:0.5 15.5:1.25 0.25 false
 
 // ground
