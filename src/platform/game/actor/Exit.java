@@ -18,7 +18,7 @@ public class Exit extends Actor
     private Signal signal;
     
     private boolean open;
-    private final double SIZE = 1;
+    private final double SIZE = 1.25;
     
     /**
      * @param position position of the exit
