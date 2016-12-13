@@ -38,7 +38,7 @@ public class BasicInteract extends Level
         
         Key key = new Key(new Vector(10, 3.5), ItemColor.RED);
         world.register(key);
-        Lever lever = new Lever(new Vector(6, 1.5));
+        Lever lever = new Lever(new Vector(6, 1.5), 10);
         world.register(lever);
         world.register(new Door(new Vector(-4.5, 1.5), ItemColor.RED, key));
         world.register(new Door(new Vector(-4.5, 2.5), ItemColor.GREEN, lever));
