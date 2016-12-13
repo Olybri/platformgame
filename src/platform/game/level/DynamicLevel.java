@@ -41,7 +41,7 @@ public class DynamicLevel extends Level
     {
         String[] pieces = string.split(":");
         if(pieces.length != 2)
-            throw new NumberFormatException("Cannot convert string '" + string + "' to " + Vector.class);
+            throw new NumberFormatException("Cannot convert string '" + string + "' to " + Vector.class + ".");
         
         return new Vector(Double.parseDouble(pieces[0]), Double.parseDouble(pieces[1]));
     }
@@ -56,7 +56,7 @@ public class DynamicLevel extends Level
     {
         String[] pieces = string.split(":");
         if(pieces.length != 4)
-            throw new NumberFormatException("Cannot convert string '" + string + "' to " + Box.class);
+            throw new NumberFormatException("Cannot convert string '" + string + "' to " + Box.class + ".");
         
         return new Box(new Vector(Double.parseDouble(pieces[0]), Double.parseDouble(pieces[1])),
             Double.parseDouble(pieces[2]), Double.parseDouble(pieces[3]));
@@ -106,10 +106,10 @@ public class DynamicLevel extends Level
     private void checkArgs(String[] args, int count) throws IllegalArgumentException
     {
         if(args.length < count + 1)
-            throw new IllegalArgumentException("Too few arguments to construct actor '" + args[0] + "'.");
+            throw new IllegalArgumentException("Too few arguments to construct object '" + args[0] + "'.");
         
         if(args.length > count + 1)
-            throw new IllegalArgumentException("Too many arguments to construct actor '" + args[0] + "'.");
+            throw new IllegalArgumentException("Too many arguments to construct object '" + args[0] + "'.");
     }
     
     @Override
