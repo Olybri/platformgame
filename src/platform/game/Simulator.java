@@ -25,7 +25,7 @@ public class Simulator implements World
     
     private final Vector GRAVITY = new Vector(0, -9.81);
     
-    private Level next = new DynamicLevel("lvl/level.1");
+    private Level next = new DynamicLevel("res/lvl/level.1");
     private boolean transition = false;
     
     /**
