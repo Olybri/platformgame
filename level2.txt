@@ -193,6 +193,7 @@ door -2:7 green sig_lever
 slime 6:8 9:8 true
 
 exit -0.5:8 level1.txt true
+scenery -0.5:9 exit 0.75 0
 
 heart 11.5:8.5
 
@@ -260,7 +261,7 @@ scenery  4:3 cst/non.solid.2 1 0
 scenery  4:4 cst/non.solid   1 0
 scenery  4:5 cst/non.solid.2 1 0
 scenery  4:6 cst/non.solid   1 0
-scenery  4:7 cst/non.solid.2 1 0
+scenery  4:7 cst/non.solid 1 0
 scenery  4:8 cst/non.solid   1 0
 scenery  4:9 cst/non.solid.2 1 0
 
@@ -270,7 +271,7 @@ scenery  5:3 cst/non.solid.2 1 0
 scenery  5:4 cst/non.solid   1 0
 scenery  5:5 cst/non.solid.2 1 0
 scenery  5:6 cst/non.solid   1 0
-scenery  5:7 cst/non.solid.2 1 0
+scenery  5:7 cst/non.solid 1 0
 scenery  5:8 cst/non.solid   1 0
 scenery  5:9 cst/non.solid.2 1 0
 
