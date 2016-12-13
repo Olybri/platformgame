@@ -24,7 +24,7 @@ public class Program
         display.setBackground(Color.WHITE);
         try
         {
-            Command.load("controls.txt", display);
+            Command.load("controls.cfg", display);
             
             // Game loop
             Simulator simulator = new Simulator(loader, args);
