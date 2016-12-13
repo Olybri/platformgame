@@ -144,8 +144,8 @@ sig_key_blue = key -1:7 blue
 sig_key_yellow = key 11:11 yellow
 
 // levier pour la sortie
-// sig_lever = lever 14:9
-sig_lever = lever -7:1 10
+sig_lever = lever 14:9 0
+
 
 // portes à clés
 door 5:5 green sig_key_green
