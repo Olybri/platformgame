@@ -166,12 +166,12 @@ spike -2:8.75
 // spike -7:3
 spike -3:8.75
 spike -4:8.75
-spike 0:8.75
-spike 1:8.75
-spike 2:8.75
-spike 4:8.75
-spike 5:8.75
-spike 6:8.75
+spike 0.2:8.75
+spike 1.2:8.75
+spike 2.2:8.75
+spike 4.4:8.75
+spike 5.4:8.75
+spike 6.4:8.75
 
 
 
