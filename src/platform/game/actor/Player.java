@@ -22,10 +22,12 @@ public class Player extends Actor
     private boolean dead = false;
     private HashMap<Side, Boolean> collisions = new HashMap<>();
     
-    private double cooldown = 0;
+    private double hurtCooldown = 0;
     private final double hurtCooldownMax = 0.75;
     private final double deathCooldownMax = 2;
     private final double hurtDelay = 0.3;
+    
+    private double inputCooldown = 1;
     
     private enum Side
     {
@@ -82,9 +84,9 @@ public class Player extends Actor
     {
         if(value < 0)
         {
-            if(cooldown > hurtCooldownMax - hurtDelay)
+            if(hurtCooldown > hurtCooldownMax - hurtDelay)
                 return false;
-            cooldown = hurtCooldownMax;
+            hurtCooldown = hurtCooldownMax;
         }
         else if(health >= healthMax)
             return false;
@@ -112,25 +114,23 @@ public class Player extends Actor
     {
         super.update(input);
         
-        cooldown -= input.getDeltaTime();
+        hurtCooldown -= input.getDeltaTime();
+        inputCooldown -= input.getDeltaTime();
+        
+        Command.enable(hurtCooldown <= 0 && inputCooldown <= 0);
         
         if(health <= 0.05 && !dead)
         {
             dead = true;
-            cooldown = deathCooldownMax;
+            hurtCooldown = deathCooldownMax;
             getWorld().register(new Fadeout(deathCooldownMax, 1));
         }
         
-        if(dead && cooldown <= 0)
+        if(dead && hurtCooldown <= 0)
         {
             getWorld().nextLevel();
             return;
         }
-        
-        if(cooldown > 0)
-            Command.enable(false);
-        else
-            Command.enable(true);
         
         if(collisions.get(Side.DOWN))
         {
@@ -298,15 +298,15 @@ public class Player extends Actor
     public void draw(Input input, Output output)
     {
         double size = SIZE;
-        if(cooldown > 0)
+        if(hurtCooldown > 0)
             if(!dead)
             {
-                size += +SIZE * Math.cos((hurtCooldownMax - cooldown) * 10) * cooldown / 3 / hurtCooldownMax;
+                size += +SIZE * Math.cos((hurtCooldownMax - hurtCooldown) * 10) * hurtCooldown / 3 / hurtCooldownMax;
                 sprite = getSprite("blocker.sad");
             }
             else
             {
-                size += +SIZE * Math.cos((deathCooldownMax - cooldown) * 10) * cooldown / 3 / deathCooldownMax;
+                size += +SIZE * Math.cos((deathCooldownMax - hurtCooldown) * 10) * hurtCooldown / 3 / deathCooldownMax;
                 sprite = getSprite("blocker.dead");
             }
         else
@@ -316,7 +316,7 @@ public class Player extends Actor
         
         double angle = velocity.getX() / 16;
         if(dead)
-            angle = Math.min((deathCooldownMax - cooldown) * 2, Math.PI / 2) * (velocity.getX() > 0 ? -1 : 1);
+            angle = Math.min((deathCooldownMax - hurtCooldown) * 2, Math.PI / 2) * (velocity.getX() > 0 ? -1 : 1);
         
         output.drawSprite(sprite, box, angle);
     }
