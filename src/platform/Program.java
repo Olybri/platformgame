@@ -42,7 +42,7 @@ public class Program
                 if(display.getTime() - last > 1)
                 {
                     last = display.getTime();
-                    System.out.println(avg);
+//                    System.out.println(avg);
                 }
             }
             // Close window

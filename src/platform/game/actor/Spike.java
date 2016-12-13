@@ -32,7 +32,7 @@ public class Spike extends Actor
     @Override
     public Box getBox()
     {
-        return new Box(position, SIZE, SIZE / 2);
+        return new Box(position, SIZE, SIZE);
     }
     
     @Override
@@ -58,6 +58,6 @@ public class Spike extends Actor
     {
         super.update(input);
         cooldown -= input.getDeltaTime();
-        sprite = getSprite("spikes");
+        sprite = getSprite("cst/spike");
     }
 }

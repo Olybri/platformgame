@@ -1,21 +1,155 @@
 // test level
 
-player = player 1.5:2
-// antiplayer player 3
-
-block  0:0:4:2 stone.broken.2
-block -4:0:4:2 stone.broken.2
-block -6:4:4:2 stone.broken.2
-block  4:1:2:4 stone.broken.8
-block -2:2:2:2 stone.broken.1
-block  7:0:4:2 stone.broken.2
-
-platform 10:2:2:2 castle.middle
-
-hill  8:2:2:2 castle.hill.left false
-hill 13:2:4:2 castle.hill.right true
-jumper 0:1.5
-heart -2:3.5
-// spike 4:3.25
+player -3:2
 
 limits 0:-25:1000:30
+
+block -5:+1:1:1 cst/solid
+block -4:+1:1:1 cst/solid
+block -3:+1:1:1 cst/solid
+block -2:+1:1:1 cst/solid
+block -1:+1:1:1 cst/solid
+block  0:+1:1:1 cst/solid
+block  1:+1:1:1 cst/solid
+block  2:+1:1:1 cst/solid
+block  3:+1:1:1 cst/solid
+block  4:+1:1:1 cst/solid
+block  5:+1:1:1 cst/solid
+block  6:+1:1:1 cst/solid
+block  7:+1:1:1 cst/solid
+block  8:+1:1:1 cst/solid
+block  9:+1:1:1 cst/solid
+block  10:+1:1:1 cst/solid
+
+block -5:+0:1:1 cst/solid
+block -4:+0:1:1 cst/solid
+block -3:+0:1:1 cst/solid
+block -2:+0:1:1 cst/solid
+block -1:+0:1:1 cst/solid
+block  0:+0:1:1 cst/solid
+block  1:+0:1:1 cst/solid
+block  2:+0:1:1 cst/solid
+block  3:+0:1:1 cst/solid
+block  4:+0:1:1 cst/solid
+block  5:+0:1:1 cst/solid
+block  6:+0:1:1 cst/solid
+block  7:+0:1:1 cst/solid
+block  8:+0:1:1 cst/solid
+block  9:+0:1:1 cst/solid
+block  10:+0:1:1 cst/solid
+
+block -8:-1:1:1 cst/solid
+block -7:-1:1:1 cst/solid
+block -6:-1:1:1 cst/solid
+block -5:-1:1:1 cst/solid
+block -4:-1:1:1 cst/solid
+block -3:-1:1:1 cst/solid
+block -2:-1:1:1 cst/solid
+block -1:-1:1:1 cst/solid
+block  0:-1:1:1 cst/solid
+block  1:-1:1:1 cst/solid
+block  2:-1:1:1 cst/solid
+block  3:-1:1:1 cst/solid
+block  4:-1:1:1 cst/solid
+block  5:-1:1:1 cst/solid
+block  6:-1:1:1 cst/solid
+block  7:-1:1:1 cst/solid
+block  8:-1:1:1 cst/solid
+block  9:-1:1:1 cst/solid
+block  10:-1:1:1 cst/solid
+
+block -8:-1:1:1 cst/solid
+block -8:0:1:1 cst/solid
+block -8:1:1:1 cst/solid
+block -8:2:1:1 cst/solid
+block -8:3:1:1 cst/solid
+block -8:4:1:1 cst/solid
+block -8:5:1:1 cst/solid
+block -8:6:1:1 cst/solid
+block -8:7:1:1 cst/solid
+
+block -7:7:1:1 cst/solid
+block -6:7:1:1 cst/solid
+block -5:7:1:1 cst/solid
+block -4:7:1:1 cst/solid
+block -3:7:1:1 cst/solid
+block -2:7:1:1 cst/solid
+block -1:7:1:1 cst/solid
+block 0:7:1:1 cst/solid
+block 1:7:1:1 cst/solid
+block 2:7:1:1 cst/solid
+block 3:7:1:1 cst/solid
+block 4:7:1:1 cst/solid
+block 5:7:1:1 cst/solid
+block 6:7:1:1 cst/solid
+
+block -5:4:1:1 cst/solid
+block -4:4:1:1 cst/solid
+
+block 3:4:1:1 cst/solid
+block 4:4:1:1 cst/solid
+block 5:4:1:1 cst/solid
+
+block 0:5:1:1 cst/solid
+block 0:6:1:1 cst/solid
+
+hill 3.5:2:2:1 cst/hill.2.1.left false
+platform 5:2:1:1 cst/solid
+block 6:2:1:1 cst/solid
+block 7:2:1:1 cst/solid
+block 8:2:1:1 cst/solid
+
+hill 7.5:3.5:2:2 cst/hill.2.2.left false
+
+scenery -4:2 cst/non.solid 1 0
+scenery -3:2 cst/non.solid 1 0
+scenery -2:2 cst/non.solid 1 0
+scenery -1:2 cst/non.solid 1 0
+
+scenery -4:3 cst/non.solid 1 0
+scenery -3:3 cst/non.solid 1 0
+scenery -2:3 cst/non.solid 1 0
+scenery -1:3 cst/non.solid 1 0
+
+scenery -3:4 cst/non.solid 1 0
+scenery -2:4 cst/non.solid 1 0
+scenery -1:4 cst/non.solid 1 0
+
+scenery -6.5:1 cst/mover.link.bottom 1 0
+scenery -6.5:2 cst/mover.link 1 0
+scenery -6.5:3 cst/mover.link 1 0
+scenery -6.5:4 cst/mover.link.top 1 0
+
+scenery -7:0 cst/non.solid 1 0
+scenery -6:0 cst/non.solid 1 0
+scenery -7:1 cst/non.solid 1 0
+scenery -6:1 cst/non.solid 1 0
+scenery -6.5:2 cst/non.solid 1 0
+scenery -6.5:3 cst/non.solid 1 0
+scenery -7:4 cst/non.solid 1 0
+scenery -6:4 cst/non.solid 1 0
+
+sig_torch = torch -2:3 false
+//sig_lever = lever -4.5:5
+sig_lever = lever -4.5:2
+
+mover -6.5:1:2:1 cst/mover -6.5:4 0.5 sig_torch
+
+platform 2:4:1:1 cst/way.up
+platform 1:4:1:1 cst/way.up
+
+not_lever = not sig_lever
+door 1:2 blue not_lever
+door 2:3 blue not_lever
+
+not_torch = not sig_torch
+door 4:5 red not_torch
+door 4:6 red not_torch
+
+door 11:5 red not_torch
+door 11:6 red not_torch
+door 12:5 red not_torch
+door 12:6 red not_torch
+
+spike -7:0
+spike -6:0
