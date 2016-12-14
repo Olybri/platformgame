@@ -62,7 +62,7 @@ public class AntiPlayer extends Actor
         if(time > delay && !alive)
         {
             alive = true;
-            sprite = getSprite("blocker.sad");
+            sprite = getSprite("blocker.anti");
             getWorld().register(new Smoke(currentPosition));
         }
         
@@ -112,6 +112,6 @@ public class AntiPlayer extends Actor
     public void draw(Input input, Output output)
     {
         if(sprite != null)
-            output.drawSprite(sprite, getBox(), velocity.getX() / 16, 0.6);
+            output.drawSprite(sprite, getBox(), velocity.getX() / 16, 1);
     }
 }
