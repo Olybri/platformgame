@@ -177,7 +177,6 @@ block   -10:2:1:1 solid.2
 block   -10:3:1:1 solid.2
 block   -10:5:1:1 solid.2
 block   -10:6:1:1 solid.2
-block   -9:6:1:1 solid.2
 block   -10:7:1:1 solid.2
 block   -10:8:1:1 solid.2
 block   -10:9:1:1 solid.2
@@ -214,7 +213,6 @@ block   10:4:1:1 solid.2
 
 block   15:1:1:1 solid.2
 block   15:2:1:1 solid.2
-block   14:2:1:1 solid.2
 block   15:3:1:1 solid.2
 block   15:4:1:1 solid.2
 block   15:5:1:1 solid.2
@@ -223,6 +221,17 @@ block   15:7:1:1 solid.2
 block   15:9:1:1 solid.2
 block   15:10:1:1 solid.2
 block   15:11:1:1 solid.2
+
+hill 12.5:1.5:2:2 hill.left.2.2 false
+platform   14:2:1:1 solid.2
+block   14:1:1:1 solid.2
+
+hill -7.5:5.5:2:2 hill.right.2.2 true
+platform   -9:6:1:1 solid.2
+block   -9:5:1:1 solid.2
+
+hill 12.5:9:2:1 hill.left.2.1 false
+platform 14:9:1:1 solid.2
 
 block   -5:8:1:1 solid.2
 block   -4:8:1:1 solid.2
@@ -280,18 +289,18 @@ sig_key_blue = key -1:7 blue
 sig_key_yellow = key 11:11 yellow
 
 // levier pour la sortie
-sig_lever = lever 14:9 0
+sig_lever = lever 14:10 0
 
 
 // portes à clés
 door 5:5 green sig_key_green
 door 0:6 red sig_key_red
 door -5:7 blue sig_key_blue
-door 13:9 yellow sig_key_yellow
+//door 13:9 yellow sig_key_yellow
 door 13:10 yellow sig_key_yellow
 door 13:11 yellow sig_key_yellow
 // door 14:9 yellow sig_key_yellow
-door 14:10 yellow sig_key_yellow
+// door 14:10 yellow sig_key_yellow
 door 14:11 yellow sig_key_yellow
 
 // exit (enfin)
