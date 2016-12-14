@@ -110,7 +110,8 @@ De nombreux éléments de jeux sont légèrement animés afin de rendre l'aspect
 
 - les cœurs et les clés qui flottent horizontalement dans l'air ;
 - les cœurs au-dessus du joueur (classe *Overlay*) qui gonflent lorsque celui-ci récupère un cœur, et qui sont secoués lorsque sa santé est faible ;
-- les ennemis qui meurent sont secoués, d'une manière semblable au joueur qui prend des dégâts.
+- les ennemis qui meurent secoués, d'une manière semblable au joueur qui prend des dégâts ;
+- le *jumper* qui s'anime à la manière d'un ressort.
 
 La plupart de ces animations profitent de fonctions sinusoïdales afin de simuler un mouvement fluide et répétitif.
 
@@ -119,3 +120,5 @@ La plupart de ces animations profitent de fonctions sinusoïdales afin de simule
 Certains éléments existent dans plusieurs couleurs. Afin de construire un de ces acteurs avec la couleur désirée, nous avons créé une classe *ItemColor*, représentant une couleur, qui ne fait rien d'autre que manipuler une chaîne de caractère décrivant la couleur.
 
 Nous avons donc la possibilité de choisir parmi les différentes couleurs qui existent grâce aux instances statiques déjà définies, comme `ItemColor.RED`, `ItemColor.BLUE`, etc.
+
+Cela nous permet d'avoir un type bien défini pour représenter la couleur d'un élément.
