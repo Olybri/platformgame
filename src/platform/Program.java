@@ -33,7 +33,7 @@ public class Program
                 JOptionPane.YES_NO_OPTION);
         
             if(n == JOptionPane.YES_OPTION && Desktop.isDesktopSupported())
-                Desktop.getDesktop().browse(new URI("https://olybri.github.io/platformgame/platformgame_b1.0.zip"));
+                Desktop.getDesktop().browse(new URI("https://olybri.github.io/platformgame/platformgame-res.zip"));
         
             return;
         }
