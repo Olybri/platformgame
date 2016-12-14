@@ -10,6 +10,8 @@ Par Loris Witschard et Soulaymane Lamrani
 
 Main class : `platform.Program`
 
+Pour jouer, il faut que le dossier 'res' se trouve à la racine du projet. Si celui-ci est absent, le programme proposera de le télécharger en suivant ce [lien](#).
+
 Pour améliorer les performances, il est possible de lancer le jeu avec l'option `-Dsun.java2d.opengl=true` afin de profiter de l'accélération matérielle.
 
 #### Contrôles
@@ -56,6 +58,14 @@ Atteindre la porte de sortie de chaque niveau.
 - Sauter jusqu'au levier et l'activer pour faire disparaître les verrous verts.
 - Revenir au départ en passant par le haut.
 - Utiliser le *jumper* pour atteindre la sortie, avant que les verrous verts ne réapparaissent.
+
+#### Niveau 2
+
+- Traverser le couloir vers la droite, en évitant l'anti-joueur.
+- Monter et traverser le second couloir vers la gauche en récupérant chaque clé.
+- Monter encore et traverser le dernier couloir en sautant par-dessus les piques.
+- Prendre la dernière clé et activer le levier : ce dernier ouvre la porte de sortie.
+- Revenir au début du niveau, toujours en évitant l'anti-joueur, puis atteindre la sortie.
 
 ### Création de niveaux
 
