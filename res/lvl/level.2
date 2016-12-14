@@ -1,4 +1,4 @@
-player = player -9:1
+player = player -7:1
 antiplayer player 3
 
 // block du niveau
@@ -9,6 +9,7 @@ block   -7:0:1:1 cst/solid
 block   -6:0:1:1 cst/solid
 block   -5:0:1:1 cst/solid
 block   -5:1:1:1 cst/solid
+block   -5:3:1:1 cst/solid
 block   -4:0:1:1 cst/solid
 block   -3:0:1:1 cst/solid
 block   -2:0:1:1 cst/solid
@@ -159,7 +160,8 @@ door 14:10 yellow sig_key_yellow
 door 14:11 yellow sig_key_yellow
 
 // exit (enfin)
-exit -9:1 level2.txt sig_lever
+exit -8.5:1 res/lvl/level.end sig_lever
+scenery -8.5:2 exit 0.75 0
 
 // obstacles
 spike -2:8.75
@@ -174,7 +176,7 @@ spike 5.4:8.75
 spike 6.4:8.75
 
 
-// décord
+// décor
 scenery -9:1 cst/non.solid 1 0
 scenery -8:1 cst/non.solid 1 0
 scenery -7:1 cst/non.solid 1 0
