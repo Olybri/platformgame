@@ -64,6 +64,8 @@ Il est possible de définir un facteur de taille pour chaque élément, mais ég
 
 Un facteur de distance supérieur à zéro indique que l'élément se trouve plus loin que le niveau. Un facteur inférieur à zéro indique qu'il se trouve plus près. Un facteur égal à zéro indique que l'élément se trouve à la même profondeur que le niveau. L'effet de perspective est ensuite simulé en se basant sur *World.getViewCenter*.
 
+Il existe également un acteur *SceneBound* sous-classe de *Scenery*, qui affiche simplement un cadre noir autour de la scène lorsque la fenêtre est trop redimensionnée. Cela permet d'éviter que l'utilisateur voie « trop loin », ce qui afficherait des bouts de décors coupés et donc non souhaitables.
+
 ## 5. Particules
 
 Afin d'améliorer l'aspect visuel du jeu, nous avons mis au point une classe abstraite *Particle* capable d'afficher une courte animation avant de s'autodétruire.
