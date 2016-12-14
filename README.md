@@ -10,7 +10,7 @@ Par Loris Witschard et Soulaymane Lamrani
 
 Main class : `platform.Program`
 
-Pour jouer, il faut que le dossier 'res' se trouve à la racine du projet. Si celui-ci est absent, le programme proposera de le télécharger en suivant ce [lien](#).
+Pour jouer, il faut que le dossier 'res' se trouve à la racine du projet. Si celui-ci est absent, le programme proposera de le télécharger en suivant ce [lien](https://olybri.github.io/platformgame/platformgame-res.zip).
 
 Pour améliorer les performances, il est possible de lancer le jeu avec l'option `-Dsun.java2d.opengl=true` afin de profiter de l'accélération matérielle.
 
