@@ -149,7 +149,7 @@ public class DynamicLevel extends Level
                         case "player":
                             checkArgs(args, 1);
                             object = new Player(parseVector(args[1]));
-                            world.resetView(Actor.class.cast(object).getPosition(), 10);
+                            world.resetView(Actor.class.cast(object).getPosition(), 5);
                             break;
                         case "slime":
                             checkArgs(args, 3);
@@ -252,5 +252,7 @@ public class DynamicLevel extends Level
         {
             e.printStackTrace();
         }
+        
+        world.register(new SceneBound());
     }
 }

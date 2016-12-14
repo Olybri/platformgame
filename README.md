@@ -10,6 +10,8 @@ Par Loris Witschard et Soulaymane Lamrani
 
 Main class : `platform.Program`
 
+Pour améliorer les performances, il est possible de lancer le jeu avec l'option `-Dsun.java2d.opengl=true` afin de profiter de l'accélération matérielle.
+
 #### Contrôles
 
 Les contrôles peuvent être définis dans le fichier *controls.cfg* sous la forme `action: contrôle`.
@@ -41,6 +43,21 @@ Contrôles par défaut :
 Atteindre la porte de sortie de chaque niveau.
 
 ## Niveaux
+
+### Solution
+
+#### Niveau 1
+
+- Aller sur le *mover* (plateforme en bois) et lancer une boule de feu sur la torche pour le faire monter.
+- Tuer le *slime* et récupérer la clé bleue pour faire disparaître les verrous bleus.
+- Descendre et éteindre la torche pour faire disparaître les verrous rouges.
+- Traverser la fosse de piques en sautant.
+- Allumer la torche à distance pour faire réapparaître les verrous rouges.
+- Sauter jusqu'au levier et l'activer pour faire disparaître les verrous verts.
+- Revenir au départ en passant par le haut.
+- Utiliser le *jumper* pour atteindre la sortie, avant que les verrous verts ne réapparaissent.
+
+### Création de niveaux
 
 Les différents niveaux sont stockés dans des fichiers situés dans le dossier *lvl*.
 

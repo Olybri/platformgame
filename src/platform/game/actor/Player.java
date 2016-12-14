@@ -204,11 +204,6 @@ public class Player extends Actor
     public void postUpdate()
     {
         getWorld().setView(position, 8);
-        
-        System.out.print("\r                                    \r");
-        for(Side side : collisions.keySet())
-            if(collisions.get(side))
-                System.out.print(side + " ");
     }
     
     @Override
