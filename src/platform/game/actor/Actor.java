@@ -139,7 +139,7 @@ public abstract class Actor implements Comparable<Actor>
         if(world == null)
             return null;
         
-        return world.getLoader().getSprite(name);
+        return world.getLoader().getSprite("img/" + name);
     }
     
     /**

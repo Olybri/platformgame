@@ -1,12 +1,12 @@
 player 0:0
 
-block 0:0.75:0.75:0.75 cst/solid
-block 0.75:0.75:0.75:0.75 cst/solid
-block 0.75:0:0.75:0.75 cst/solid
-block 0.75:-0.75:0.75:0.75 cst/solid
-block 0:-0.75:0.75:0.75 cst/solid
-block -0.75:-0.75:0.75:0.75 cst/solid
-block -0.75:0:0.75:0.75 cst/solid
-block -0.75:0.75:0.75:0.75 cst/solid
+block 0:0.75:0.75:0.75 solid
+block 0.75:0.75:0.75:0.75 solid
+block 0.75:0:0.75:0.75 solid
+block 0.75:-0.75:0.75:0.75 solid
+block 0:-0.75:0.75:0.75 solid
+block -0.75:-0.75:0.75:0.75 solid
+block -0.75:0:0.75:0.75 solid
+block -0.75:0.75:0.75:0.75 solid
 
-scenery 0:0 cst/end 1.3 -1
+scenery 0:0 end 1.3 -1

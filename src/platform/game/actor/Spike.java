@@ -58,6 +58,6 @@ public class Spike extends Actor
     {
         super.update(input);
         cooldown -= input.getDeltaTime();
-        sprite = getSprite("cst/spike");
+        sprite = getSprite("spike");
     }
 }
