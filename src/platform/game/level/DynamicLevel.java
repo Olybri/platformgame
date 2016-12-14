@@ -202,8 +202,8 @@ public class DynamicLevel extends Level
                             object = new Key(parseVector(args[1]), new ItemColor(args[2]));
                             break;
                         case "lever":
-                            checkArgs(args, 1);
-                            object = new Lever(parseVector(args[1]));
+                            checkArgs(args, 2);
+                            object = new Lever(parseVector(args[1]), Double.parseDouble(args[2]));
                             break;
                         case "limits":
                             checkArgs(args, 1);

@@ -1,0 +1,311 @@
+player = player -9:1
+antiplayer player 3
+
+// block du niveau
+block   -10:0:1:1 cst/solid
+block   -9:0:1:1 cst/solid
+block   -8:0:1:1 cst/solid
+block   -7:0:1:1 cst/solid
+block   -6:0:1:1 cst/solid
+block   -5:0:1:1 cst/solid
+block   -5:1:1:1 cst/solid
+block   -4:0:1:1 cst/solid
+block   -3:0:1:1 cst/solid
+block   -2:0:1:1 cst/solid
+block   -1:0:1:1 cst/solid
+block   0:0:1:1 cst/solid
+block   0:1:1:1 cst/solid
+block   0:3:1:1 cst/solid
+block   1:0:1:1 cst/solid
+block   2:0:1:1 cst/solid
+block   3:0:1:1 cst/solid
+block   4:0:1:1 cst/solid
+block   5:0:1:1 cst/solid
+block   5:1:1:1 cst/solid
+block   5:3:1:1 cst/solid
+block   6:0:1:1 cst/solid
+block   7:0:1:1 cst/solid
+block   8:0:1:1 cst/solid
+block   9:0:1:1 cst/solid
+block   10:0:1:1 cst/solid
+block   10:1:1:1 cst/solid
+block   10:3:1:1 cst/solid
+block   11:0:1:1 cst/solid
+block   12:0:1:1 cst/solid
+block   13:0:1:1 cst/solid
+block   14:0:1:1 cst/solid
+block   15:0:1:1 cst/solid
+
+block   -10:1:1:1 cst/solid
+block   -10:2:1:1 cst/solid
+block   -10:3:1:1 cst/solid
+block   -10:5:1:1 cst/solid
+block   -10:6:1:1 cst/solid
+block   -9:6:1:1 cst/solid
+block   -10:7:1:1 cst/solid
+block   -10:8:1:1 cst/solid
+block   -10:9:1:1 cst/solid
+block   -10:10:1:1 cst/solid
+block   -10:11:1:1 cst/solid
+
+block   -10:4:1:1 cst/solid
+block   -9:4:1:1 cst/solid
+block   -8:4:1:1 cst/solid
+block   -7:4:1:1 cst/solid
+block   -6:4:1:1 cst/solid
+block   -5:4:1:1 cst/solid
+block   -5:5:1:1 cst/solid
+block   -5:6:1:1 cst/solid
+block   -4:4:1:1 cst/solid
+block   -3:4:1:1 cst/solid
+block   -2:4:1:1 cst/solid
+block   -1:4:1:1 cst/solid
+block   0:4:1:1 cst/solid
+block   0:5:1:1 cst/solid
+block   0:7:1:1 cst/solid
+block   1:4:1:1 cst/solid
+block   2:4:1:1 cst/solid
+block   3:4:1:1 cst/solid
+block   4:4:1:1 cst/solid
+block   5:4:1:1 cst/solid
+block   5:6:1:1 cst/solid
+block   5:7:1:1 cst/solid
+block   6:4:1:1 cst/solid
+block   7:4:1:1 cst/solid
+block   8:4:1:1 cst/solid
+block   9:4:1:1 cst/solid
+block   10:4:1:1 cst/solid
+
+block   15:1:1:1 cst/solid
+block   15:2:1:1 cst/solid
+block   14:2:1:1 cst/solid
+block   15:3:1:1 cst/solid
+block   15:4:1:1 cst/solid
+block   15:5:1:1 cst/solid
+block   15:6:1:1 cst/solid
+block   15:7:1:1 cst/solid
+block   15:9:1:1 cst/solid
+block   15:10:1:1 cst/solid
+block   15:11:1:1 cst/solid
+
+block   -5:8:1:1 cst/solid
+block   -4:8:1:1 cst/solid
+block   -3:8:1:1 cst/solid
+block   -2:8:1:1 cst/solid
+block   -1:8:1:1 cst/solid
+block   0:8:1:1 cst/solid
+block   1:8:1:1 cst/solid
+block   2:8:1:1 cst/solid
+block   3:8:1:1 cst/solid
+block   4:8:1:1 cst/solid
+block   5:8:1:1 cst/solid
+block   6:8:1:1 cst/solid
+block   7:8:1:1 cst/solid
+block   8:8:1:1 cst/solid
+block   9:8:1:1 cst/solid
+block   10:8:1:1 cst/solid
+block   11:8:1:1 cst/solid
+block   12:8:1:1 cst/solid
+block   13:8:1:1 cst/solid
+block   14:8:1:1 cst/solid
+block   15:8:1:1 cst/solid
+
+block   -10:12:1:1 cst/solid
+block   -9:12:1:1 cst/solid
+block   -8:12:1:1 cst/solid
+block   -7:12:1:1 cst/solid
+block   -6:12:1:1 cst/solid
+block   -5:12:1:1 cst/solid
+block   -4:12:1:1 cst/solid
+block   -3:12:1:1 cst/solid
+block   -2:12:1:1 cst/solid
+block   -1:12:1:1 cst/solid
+block   0:12:1:1 cst/solid
+block   1:12:1:1 cst/solid
+block   2:12:1:1 cst/solid
+block   3:12:1:1 cst/solid
+block   4:12:1:1 cst/solid
+block   5:12:1:1 cst/solid
+block   6:12:1:1 cst/solid
+block   7:12:1:1 cst/solid
+block   8:12:1:1 cst/solid
+block   9:12:1:1 cst/solid
+block   10:12:1:1 cst/solid
+block   11:12:1:1 cst/solid
+block   12:12:1:1 cst/solid
+block   13:12:1:1 cst/solid
+block   14:12:1:1 cst/solid
+block   15:12:1:1 cst/solid
+
+// clés pour les portes
+sig_key_green = key 7.5:7 green
+sig_key_red = key 4:7 red
+sig_key_blue = key -1:7 blue
+sig_key_yellow = key 11:11 yellow
+
+// levier pour la sortie
+sig_lever = lever 14:9 0
+
+
+// portes à clés
+door 5:5 green sig_key_green
+door 0:6 red sig_key_red
+door -5:7 blue sig_key_blue
+door 13:9 yellow sig_key_yellow
+door 13:10 yellow sig_key_yellow
+door 13:11 yellow sig_key_yellow
+// door 14:9 yellow sig_key_yellow
+door 14:10 yellow sig_key_yellow
+door 14:11 yellow sig_key_yellow
+
+// exit (enfin)
+exit -9:1 level2.txt sig_lever
+
+// obstacles
+spike -2:8.75
+// spike -7:3
+spike -3:8.75
+spike -4:8.75
+spike 0.2:8.75
+spike 1.2:8.75
+spike 2.2:8.75
+spike 4.4:8.75
+spike 5.4:8.75
+spike 6.4:8.75
+
+
+// décord
+scenery -9:1 cst/non.solid 1 0
+scenery -8:1 cst/non.solid 1 0
+scenery -7:1 cst/non.solid 1 0
+scenery -6:1 cst/non.solid 1 0
+scenery -9:2 cst/non.solid 1 0
+scenery -8:2 cst/non.solid 1 0
+scenery -7:2 cst/non.solid 1 0
+scenery -6:2 cst/non.solid 1 0
+scenery -9:3 cst/non.solid 1 0
+scenery -8:3 cst/non.solid 1 0
+scenery -7:3 cst/non.solid 1 0
+scenery -6:3 cst/non.solid 1 0
+scenery -9:5 cst/non.solid 1 0
+scenery -8:5 cst/non.solid 1 0
+scenery -7:5 cst/non.solid 1 0
+scenery -6:5 cst/non.solid 1 0
+scenery -8:6 cst/non.solid 1 0
+scenery -7:6 cst/non.solid 1 0
+scenery -6:6 cst/non.solid 1 0
+scenery -9:7 cst/non.solid 1 0
+scenery -8:7 cst/non.solid 1 0
+scenery -7:7 cst/non.solid 1 0
+scenery -6:7 cst/non.solid 1 0
+scenery -9:8 cst/non.solid 1 0
+scenery -8:8 cst/non.solid 1 0
+scenery -7:8 cst/non.solid 1 0
+scenery -6:8 cst/non.solid 1 0
+scenery -9:9 cst/non.solid 1 0
+scenery -8:9 cst/non.solid 1 0
+scenery -7:9 cst/non.solid 1 0
+scenery -6:9 cst/non.solid 1 0
+scenery -9:10 cst/non.solid 1 0
+scenery -8:10 cst/non.solid 1 0
+scenery -7:10 cst/non.solid 1 0
+scenery -6:10 cst/non.solid 1 0
+scenery -9:11 cst/non.solid 1 0
+scenery -8:11 cst/non.solid 1 0
+scenery -7:11 cst/non.solid 1 0
+scenery -6:11 cst/non.solid 1 0
+
+scenery -5:2 cst/non.solid 1 0
+
+scenery -4:1 cst/non.solid 1 0
+scenery -3:1 cst/non.solid 1 0
+scenery -2:1 cst/non.solid 1 0
+scenery -1:1 cst/non.solid 1 0
+scenery -4:2 cst/non.solid 1 0
+scenery -3:2 cst/non.solid 1 0
+scenery -2:2 cst/non.solid 1 0
+scenery -1:2 cst/non.solid 1 0
+scenery -4:3 cst/non.solid 1 0
+scenery -3:3 cst/non.solid 1 0
+scenery -2:3 cst/non.solid 1 0
+scenery -1:3 cst/non.solid 1 0
+
+scenery 0:2 cst/non.solid 1 0
+
+scenery 1:1 cst/non.solid 1 0
+scenery 2:1 cst/non.solid 1 0
+scenery 3:1 cst/non.solid 1 0
+scenery 4:1 cst/non.solid 1 0
+scenery 1:2 cst/non.solid 1 0
+scenery 2:2 cst/non.solid 1 0
+scenery 3:2 cst/non.solid 1 0
+scenery 4:2 cst/non.solid 1 0
+scenery 1:3 cst/non.solid 1 0
+scenery 2:3 cst/non.solid 1 0
+scenery 3:3 cst/non.solid 1 0
+scenery 4:3 cst/non.solid 1 0
+
+scenery 5:2 cst/non.solid 1 0
+
+scenery 6:1 cst/non.solid 1 0
+scenery 7:1 cst/non.solid 1 0
+scenery 8:1 cst/non.solid 1 0
+scenery 9:1 cst/non.solid 1 0
+scenery 6:2 cst/non.solid 1 0
+scenery 7:2 cst/non.solid 1 0
+scenery 8:2 cst/non.solid 1 0
+scenery 9:2 cst/non.solid 1 0
+scenery 6:3 cst/non.solid 1 0
+scenery 7:3 cst/non.solid 1 0
+scenery 8:3 cst/non.solid 1 0
+scenery 9:3 cst/non.solid 1 0
+
+scenery 10:2 cst/non.solid 1 0
+
+scenery 11:1 cst/non.solid 1 0
+scenery 12:1 cst/non.solid 1 0
+scenery 13:1 cst/non.solid 1 0
+scenery 14:1 cst/non.solid 1 0
+scenery 11:2 cst/non.solid 1 0
+scenery 12:2 cst/non.solid 1 0
+scenery 13:2 cst/non.solid 1 0
+scenery 14:2 cst/non.solid 1 0
+scenery 11:3 cst/non.solid 1 0
+scenery 12:3 cst/non.solid 1 0
+scenery 13:3 cst/non.solid 1 0
+scenery 14:3 cst/non.solid 1 0
+scenery 11:4 cst/non.solid 1 0
+scenery 12:4 cst/non.solid 1 0
+scenery 13:4 cst/non.solid 1 0
+scenery 14:4 cst/non.solid 1 0
+scenery 11:5 cst/non.solid 1 0
+scenery 12:5 cst/non.solid 1 0
+scenery 13:5 cst/non.solid 1 0
+scenery 14:5 cst/non.solid 1 0
+scenery 11:6 cst/non.solid 1 0
+scenery 12:6 cst/non.solid 1 0
+scenery 13:6 cst/non.solid 1 0
+scenery 14:6 cst/non.solid 1 0
+scenery 11:7 cst/non.solid 1 0
+scenery 12:7 cst/non.solid 1 0
+scenery 13:7 cst/non.solid 1 0
+scenery 14:7 cst/non.solid 1 0
+scenery 10:9 cst/non.solid 1 0
+scenery 11:9 cst/non.solid 1 0
+scenery 12:9 cst/non.solid 1 0
+scenery 13:9 cst/non.solid 1 0
+scenery 14:9 cst/non.solid 1 0
+scenery 10:10 cst/non.solid 1 0
+scenery 11:10 cst/non.solid 1 0
+scenery 12:10 cst/non.solid 1 0
+scenery 13:10 cst/non.solid 1 0
+scenery 14:10 cst/non.solid 1 0
+scenery 10:11 cst/non.solid 1 0
+scenery 11:11 cst/non.solid 1 0
+scenery 12:11 cst/non.solid 1 0
+scenery 13:11 cst/non.solid 1 0
+scenery 14:11 cst/non.solid 1 0
+
+
+
+scenery 0:0 cst/bg.2 160 0.99
