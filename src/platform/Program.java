@@ -23,6 +23,7 @@ public class Program
 {
     public static void main(String[] args) throws Exception
     {
+        System.setProperty("sun.java2d.opengl", "true");
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
     
         File resDir = new File("res");
